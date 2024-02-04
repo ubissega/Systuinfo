@@ -3,18 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Site Estático com Dados Dinâmicos</title>
-     <!-- Adicione as bibliotecas do Firebase -->
-    <script defer src="https://www.gstatic.com/firebasejs/9.1.0/firebase-app.js"></script>
-    <script defer src="https://www.gstatic.com/firebasejs/9.1.0/firebase-auth.js"></script>
-    <script defer src="https://www.gstatic.com/firebasejs/9.1.0/firebase-database.js"></script>
+    <title>Firebase Authentication Example</title>
+    <!-- Use a versão 8 do Firebase SDK para evitar problemas com módulos ESM -->
+    <script defer src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script defer src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script defer src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
     <!-- Adicione aqui as configurações do seu projeto Firebase -->
     <script defer src="firebase.js"></script>
-    
 </head>
-<body style="background:url('https://imgur.com/SDlYImA' ) " >
-
-      <h1>Firebase Authentication Example</h1>
+<body>
+    <h1>Firebase Authentication Example</h1>
 
     <script>
         // Função para fazer login com e-mail e senha
@@ -40,25 +38,5 @@
 
     <!-- Adicione um botão para fazer login -->
     <button onclick="fazerLogin()">Fazer Login</button>
-    
-    <div id="users-list"></div>
-
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            // Fazendo uma requisição para a API JSONPlaceholder
-            fetch("https://jsonplaceholder.typicode.com/users")
-                .then(response => response.json())
-                .then(users => {
-                    // Manipula os dados e atualiza o conteúdo do site
-                    const userListDiv = document.getElementById("users-list");
-                    userListDiv.innerHTML = "<h2>Lista de Usuários</h2>";
-
-                    users.forEach(user => {
-                        userListDiv.innerHTML += `<p>${user.name}</p>`;
-                    });
-                })
-                .catch(error => console.error("Erro ao buscar dados da API:", error));
-        });
-    </script>
 </body>
 </html>
