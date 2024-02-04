@@ -4,8 +4,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Site Estático com Dados Dinâmicos</title>
+     <!-- Adicione as bibliotecas do Firebase -->
+    <script defer src="https://www.gstatic.com/firebasejs/9.1.0/firebase-app.js"></script>
+    <script defer src="https://www.gstatic.com/firebasejs/9.1.0/firebase-auth.js"></script>
+    <script defer src="https://www.gstatic.com/firebasejs/9.1.0/firebase-database.js"></script>
+    <!-- Adicione aqui as configurações do seu projeto Firebase -->
+    <script defer src="firebase.js"></script>
+    
 </head>
 <body style="background:url('https://imgur.com/SDlYImA' ) " >
+
+      <h1>Firebase Authentication Example</h1>
+
+    <script>
+        // Função para fazer login com e-mail e senha
+        function fazerLogin() {
+            const email = prompt("Digite seu e-mail:");
+            const senha = prompt("Digite sua senha:");
+
+            // Tentativa de login
+            firebase.auth().signInWithEmailAndPassword(email, senha)
+                .then(userCredential => {
+                    // Usuário autenticado com sucesso
+                    const user = userCredential.user;
+                    console.log("Usuário autenticado com UID:", user.uid);
+
+                    // Exemplo: redirecionar para outra página após o login
+                    window.location.href = "pagina_logada.html";
+                })
+                .catch(error => {
+                    console.error("Erro ao fazer login:", error.message);
+                });
+        }
+    </script>
+
+    <!-- Adicione um botão para fazer login -->
+    <button onclick="fazerLogin()">Fazer Login</button>
+    
     <div id="users-list"></div>
 
     <script>
