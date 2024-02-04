@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Firebase Authentication Example</title>
+    <!-- Adicione as bibliotecas do Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/9.1.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.1.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.1.0/firebase-database.js"></script>
+</head>
+<body>
+    <h1>Criar usuário</h1>
+  
+
+  <script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  const firebaseConfig = {
+    apiKey: "AIzaSyDohCeHRGxRiO4sfN9pOFHVUqe01cuzUEg",
+    authDomain: "systuinfo.firebaseapp.com",
+    projectId: "systuinfo",
+    storageBucket: "systuinfo.appspot.com",
+    messagingSenderId: "604412345972",
+    appId: "1:604412345972:web:96338d9c4f5853d1765b21"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+
+    alert(app);
+        // Inicialize o Firebase
+        firebase.initializeApp(firebaseConfig);
+
+        // Referências para o Firebase
+        const auth = firebase.auth();
+        const database = firebase.database();
+
+        // Função para registrar um novo usuário
+        function registrarUsuario() {
+            const email = prompt("Digite seu e-mail:");
+            const senha = prompt("Digite sua senha:");
+
+            auth.createUserWithEmailAndPassword(email, senha)
+                .then(userCredential => {
+                    // Usuário registrado com sucesso
+                    const user = userCredential.user;
+                    console.log("Usuário registrado com UID:", user.uid);
+
+                    // Adiciona informações adicionais ao banco de dados
+                    const nome = prompt("Digite seu nome:");
+                    if (nome) {
+                        database.ref("usuarios/" + user.uid).set({
+                            nome: nome,
+                            email: email
+                        });
+
+                        console.log("Informações adicionais salvas no banco de dados.");
+                    }
+                })
+                .catch(error => {
+                    console.error("Erro ao registrar usuário:", error.message);
+                });
+        }
+    </script>
+
+    <!-- Adicione um botão para registrar um novo usuário -->
+    <button onclick="registrarUsuario()">Registrar Usuário</button>
+</body>
+</html>
