@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tela de Login</title>
+    <!-- Adicione as bibliotecas do Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/9.1.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.1.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.1.0/firebase-database.js"></script>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -87,7 +91,7 @@
                 <button><a href="registar_usuario.html">Criar conta</a></button>
             </div>
     </div>
-    <script>
+    <script type="module">
         // Your web app's Firebase configuration
       const firebaseConfig = {
         apiKey: "AIzaSyDohCeHRGxRiO4sfN9pOFHVUqe01cuzUEg",
