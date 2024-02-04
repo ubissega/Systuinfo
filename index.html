@@ -14,7 +14,7 @@
     <script defer src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
     
     <!-- Adicione aqui as configurações do seu projeto Firebase -->
-    <script defer src="firebase.js"></script>
+    <script defer src="https://ubissega.github.io/Systuinfo/firebase.js"></script>
     
 </head>
 <body class="login-body">
@@ -44,11 +44,13 @@
             const email = document.getElementById('email').value;
             const senha = document.getElementById('senha').value;
 
-            auth.signInWithEmailAndPassword(email, senha)
+            firebase.auth.signInWithEmailAndPassword(email, senha)
                 .then(userCredential => {
                     // Usuário autenticado com sucesso
                     const user = userCredential.user;
                     console.log("Usuário autenticado com UID:", user.uid);
+                    // Exemplo: redirecionar para outra página após o login
+                    window.location.href = "inicio.html";
                 })
                 .catch(error => {
                     console.error("Erro ao fazer login:", error.message);
