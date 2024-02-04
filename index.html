@@ -22,70 +22,27 @@
         <h2>Login</h2>
         <form class="login-form">
             <div class="form-group">
-                <label for="username">Usuário:</label>
-                <input type="text" id="username" name="username" required>
+                <label >Email:</label>
+                <input type="email" id="email" required>
             </div>
             <div class="form-group">
-                <label for="password">Senha:</label>
-                <input type="password" id="password" name="password" required>
+                <label >Senha:</label>
+                <input type="password" id="senha" required>
             </div>
             <div class="form-group">
-                <button type="submit">Entrar</button>
+                <button onclick="iniciarSessao()">Entrar</button>
             </div>
         </form>
         <div class="form-group">
                 <button><a href="registar_usuario.html">Criar conta</a></button>
             </div>
     </div>
-    <script type="module">
-        // Your web app's Firebase configuration
-      const firebaseConfig = {
-        apiKey: "AIzaSyDohCeHRGxRiO4sfN9pOFHVUqe01cuzUEg",
-        authDomain: "systuinfo.firebaseapp.com",
-        projectId: "systuinfo",
-        storageBucket: "systuinfo.appspot.com",
-        messagingSenderId: "604412345972",
-        appId: "1:604412345972:web:96338d9c4f5853d1765b21"
-      };
 
-        // Inicialize o Firebase
-        firebase.initializeApp(firebaseConfig);
-
-        // Referências para o Firebase
-        const auth = firebase.auth();
-        const database = firebase.database();
-
-        // Função para registrar um novo usuário
-        function registrarUsuario() {
-            const email = prompt("Digite seu e-mail:");
-            const senha = prompt("Digite sua senha:");
-
-            auth.createUserWithEmailAndPassword(email, senha)
-                .then(userCredential => {
-                    // Usuário registrado com sucesso
-                    const user = userCredential.user;
-                    console.log("Usuário registrado com UID:", user.uid);
-
-                    // Adiciona informações adicionais ao banco de dados
-                    const nome = prompt("Digite seu nome:");
-                    if (nome) {
-                        database.ref("usuarios/" + user.uid).set({
-                            nome: nome,
-                            email: email
-                        });
-
-                        console.log("Informações adicionais salvas no banco de dados.");
-                    }
-                })
-                .catch(error => {
-                    console.error("Erro ao registrar usuário:", error.message);
-                });
-        }
-
+    <script>
         // Função para fazer login com e-mail e senha
-        function fazerLogin() {
-            const email = prompt("Digite seu e-mail:");
-            const senha = prompt("Digite sua senha:");
+        function iniciarSessao() {
+            const email = document.getElementById('email').value;
+            const senha = document.getElementById('senha').value;
 
             auth.signInWithEmailAndPassword(email, senha)
                 .then(userCredential => {
@@ -98,10 +55,6 @@
                 });
         }
     </script>
-
-    <!-- Adicione botões para interação -->
-    <button onclick="registrarUsuario()">Registrar Usuário</button>
-    <button onclick="fazerLogin()">Fazer Login</button>
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
