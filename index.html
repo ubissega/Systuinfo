@@ -38,14 +38,12 @@
     </div>
 
     <script>
-            const email = document.getElementById('email').value;
-            const senha = document.getElementById('senha').value;
-            alert(email,senha);
         // Função para fazer login com e-mail e senha
         function iniciarSessao() {
             const email = document.getElementById('email').value;
             const senha = document.getElementById('senha').value;
-            alert(email,senha);
+            alert(email);
+            alert(senha);
 
             firebase.auth.signInWithEmailAndPassword(email, senha)
                 .then(userCredential => {
