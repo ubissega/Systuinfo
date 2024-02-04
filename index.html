@@ -20,7 +20,7 @@
 <body class="login-body">
     <div class="container">
         <h2>Login</h2>
-        <form class="login-form">
+        <div class="login-form">
             <div class="form-group">
                 <label >Email:</label>
                 <input type="email" id="email" required>
@@ -32,7 +32,7 @@
             <div class="form-group">
                 <button onclick="iniciarSessao()">Entrar</button>
             </div>
-        </form>
+        </div>
         <div class="form-group">
                 <button><a href="registar_usuario.html">Criar conta</a></button>
             </div>
@@ -43,6 +43,7 @@
         function iniciarSessao() {
             const email = document.getElementById('email').value;
             const senha = document.getElementById('senha').value;
+            alert(email,senha);
 
             firebase.auth.signInWithEmailAndPassword(email, senha)
                 .then(userCredential => {
