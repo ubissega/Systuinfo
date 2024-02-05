@@ -1,11 +1,4 @@
-.bg-login{    
-    background: url('https://i.imgur.com/ANgNh5H.png') no-repeat fixed;
-    background-size: cover;
-}
-.bg-main{    
-    background: url('https://i.imgur.com/sqq5Rb6.png') no-repeat fixed;
-    background-size: cover;
-}
+
 .login-body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -23,6 +16,15 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     width: 300px;
     max-width: 80%;
+    color: #fff;
+}
+.insc-container {
+    background-color: #29304050;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 50%;
+    max-width: 50%;
     color: #fff;
 }
 
@@ -46,6 +48,7 @@
 .form-group input {
     width: 100%;
     padding: 8px;
+    margin: 3px;
     box-sizing: border-box;
     border: 1px solid #ccc;
     border-radius: 4px;
@@ -60,10 +63,12 @@
     cursor: pointer;
     width: 100%;
 }
+.form-group span{
+    margin-left: 8px;
+}
 
 @media (max-width: 600px) {
     .login-container {
         width: 90%;
     }
 }
-
