@@ -78,8 +78,7 @@
 		//GERADOR E VERIFICA:|AO DO ID
 		//=============================
 	    var numeroAleatorio = Math.floor(Math.random(111111111111111) * 999999999999999);
-	    var isExist=verificarExistenciaID(numeroAleatorio);
-		alert(isExist);
+	    verificarExistenciaID(numeroAleatorio);
 
 		//=============================
 		//GLOBARIAR VARIAVEIS
@@ -156,8 +155,10 @@
 		function verificarExistenciaID(idVerificar) {
 		    referenciaColecao.orderByChild("id").equalTo(idVerificar).once('value').then(function(snapshot) {
 		        if (snapshot.exists()) {
+				alert("Verdadeiro")
 		            return true;
 		        } else {
+				alert("Falso")
 		            return false;
 		        }
 		    }).catch(function(erro) {
