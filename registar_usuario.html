@@ -147,12 +147,13 @@
 		//TRABALHANDO NA REALTIME DATABASE FIREBASE
 		//============================================================================================================
 		var caminhoColecao = "systuinfo/usuario";
-var referenciaColecao = firebase.database().ref(caminhoColecao);
 
 		//===================================
 // VERIFICAR SE O ID DO USUÁRIO EXISTE
 //====================================
 function verificarExistenciaID(idVerificar) {
+	
+	var referenciaColecao = firebase.database().ref(caminhoColecao);
     // Verificar se o caminhoColecao é uma string válida
     if (typeof caminhoColecao !== 'string' || caminhoColecao.trim() === '') {
         return Promise.reject("Caminho da coleção inválido");
