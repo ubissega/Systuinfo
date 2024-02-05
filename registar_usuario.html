@@ -157,7 +157,7 @@
 		// VERIFICAR SE O ID DO USUÁRIO EXISTE
 		//====================================
 		function verificarExistenciaID(idVerificar) {
-		    referenciaColecao.orderByChild("id").equalTo(idVerificar).once('value').then(function(snapshot) {
+		    referenciaBD.orderByChild("id").equalTo(idVerificar).once('value').then(function(snapshot) {
 		        if (snapshot.exists()) {
 		            alert("TRUE");// true;
 		        } else {
