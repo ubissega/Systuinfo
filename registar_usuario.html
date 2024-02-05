@@ -84,9 +84,14 @@
 		//GLOBARIAR VARIAVEIS
 		//=============================	
 		var referenciaColecao="";
-		document.addEventListener('DOMContentLoaded', function() {
-			referenciaColecao = firebase.database().ref(caminhoColecao);
-		});
+		// Defina a função anônima que cria a referência da coleção
+		var inicializarReferenciaColecao = function() {
+		    referenciaColecao = firebase.database().ref(caminhoColecao);
+		};
+		
+		// Chame a função quando necessário
+		inicializarReferenciaColecao();
+
 		
 		var dados={};
 		var primeiro_nome="";
