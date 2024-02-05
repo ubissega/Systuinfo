@@ -147,24 +147,38 @@
 		//TRABALHANDO NA REALTIME DATABASE FIREBASE
 		//============================================================================================================
 		var caminhoColecao = "systuinfo/usuario";
-		var referenciaColecao = firebase.database().ref(caminhoColecao);
+var referenciaColecao = firebase.database().ref(caminhoColecao);
 
-		//===================================
-		//VERIFICAR SE O ID DO USUARIO EXISTE
-		//====================================
-		function verificarExistenciaID(idVerificar) {
-		    referenciaColecao.orderByChild("id").equalTo(idVerificar).once('value').then(function(snapshot) {
-		        if (snapshot.exists()) {
-				alert("Verdadeiro")
-		            return true;
-		        } else {
-				alert("Falso")
-		            return false;
-		        }
-		    }).catch(function(erro) {
-		        alert("Erro ao verificar a existência do ID:", erro);
-		    });
-		}
+//===================================
+// VERIFICAR SE O ID DO USUÁRIO EXISTE
+//====================================
+function verificarExistenciaID(idVerificar) {
+    return new Promise(function(resolve, reject) {
+        referenciaColecao.orderByChild("id").equalTo(idVerificar).once('value')
+            .then(function(snapshot) {
+                if (snapshot.exists()) {
+                    resolve(true);
+                } else {
+                    resolve(false);
+                }
+            })
+            .catch(function(erro) {
+                reject("Erro ao verificar a existência do ID: " + erro);
+            });
+    });
+}
+
+// Exemplo de uso
+verificarExistenciaID("seuID").then(function(resultado) {
+    if (resultado) {
+        alert("Verdadeiro");
+    } else {
+        alert("Falso");
+    }
+}).catch(function(erro) {
+    alert(erro);
+});
+
 		/*
 		//==============================
 		//INSERÇÃO DA IMAGEM NA BASE DE DADOS
