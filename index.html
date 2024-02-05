@@ -41,8 +41,8 @@
     <script>
         // Função para fazer login com e-mail e senha
         function fazerLogin() {
-            const email = document.getElementById('email');
-            const senha = document.getElementById('senha');
+            const email = document.getElementById('email').value;
+            const senha = document.getElementById('senha').value;
 
             // Tentativa de login
             firebase.auth().signInWithEmailAndPassword(email, senha)
