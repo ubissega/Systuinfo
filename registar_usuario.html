@@ -130,7 +130,7 @@
 			dados.primeiro_nome = primeiro_nome;
 			dados.nome_meio = nome_meio;
 			dados.ultimo_nome = ultimo_nome;
-			dados.id_pic_perfil = arquivoImagem;
+			//dados.id_pic_perfil = arquivoImagem;
 			dados.telefone = telefone;
 			dados.cidade = cidade;
 			dados.morada = morada;
@@ -143,6 +143,7 @@
 			var bd= firebase.database();
 		    	//alert(dados.id);
 		    	alert(bd);   
+			/*
 			bd.ref('systuinfo/usuario').orderByChild('id').equalTo(numeroAleatorio).once('value').then(function(snapshot) {
 			        if (snapshot.exists()) {
 			            console.log("TRUE");// true;
@@ -152,7 +153,7 @@
 			    }).catch(function(erro) {
 			        console.log("Erro ao verificar a existência do ID:", erro);
 			});
-
+*/
 			
 			// Caminho para a coleção (ou nó) onde você deseja armazenar os dados
 			var caminhoColecao = "usuarios";
@@ -161,7 +162,7 @@
 			var referenciaNodo = database.ref(caminhoColecao);
 
 			// Insere os dados no banco de dados
-			referenciaNodo.push(dados)
+			bd.ref('systuinfo').push(dados)
 			  .then(function() {
 			    console.log("Dados inseridos com sucesso!");
 			  })
