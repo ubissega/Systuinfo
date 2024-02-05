@@ -87,7 +87,7 @@
 		function referenciaColecao() {
 		     return firebase.database().ref(caminhoColecao);
 		}
-				
+		var referenciaColecao=referenciaColecao();				
 		var dados={};
 		var primeiro_nome="";
 		var nome_meio="";
@@ -166,11 +166,11 @@
 			}
 			
 			// Verificar se a referência da coleção é válida
-			if (!referenciaColecao() || typeof referenciaColecao() !== 'object') {
+			if (!referenciaColecao || typeof referenciaColecao !== 'object') {
 				return Promise.reject("Referência da coleção inválida");
 			}
 			
-			return referenciaColecao().orderByChild("id").equalTo(idVerificar).once('value').then(function(snapshot) {
+			return referenciaColecao.orderByChild("id").equalTo(idVerificar).once('value').then(function(snapshot) {
 				if (snapshot.exists()) {
 				return true;
 				} else {
