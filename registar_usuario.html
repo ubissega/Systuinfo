@@ -84,6 +84,9 @@
 		//GLOBARIAR VARIAVEIS
 		//=============================	
 		var referenciaColecao="";
+		document.addEventListener('DOMContentLoaded', function() {
+			referenciaColecao = firebase.database().ref(caminhoColecao);
+		}):
 		
 		var dados={};
 		var primeiro_nome="";
@@ -222,8 +225,6 @@
 		(function () {
 		  'use strict'
 			
-		referenciaColecao = firebase.database().ref(caminhoColecao);
-
 		  // Fetch all the forms we want to apply custom Bootstrap validation styles to
 		  var forms = document.querySelectorAll('.needs-validation')
 
