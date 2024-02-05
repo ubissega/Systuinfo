@@ -30,7 +30,7 @@
                 <input type="password" id="senha" required>
             </div>
             <div class="form-group">
-                <button onclick="iniciarSessao()">Entrar</button>
+                <button onclick="fazerLogin()">Entrar</button>
             </div>
         </div>
         <div class="form-group">
@@ -41,8 +41,8 @@
     <script>
         // Função para fazer login com e-mail e senha
         function fazerLogin() {
-            const email = prompt("Digite seu e-mail:");
-            const senha = prompt("Digite sua senha:");
+            const email = document.getElementById('email');
+            const senha = document.getElementById('senha');
 
             // Tentativa de login
             firebase.auth().signInWithEmailAndPassword(email, senha)
@@ -61,7 +61,7 @@
     </script>
 
     <!-- Adicione um botão para fazer login -->
-    <button onclick="fazerLogin()">Fazer Login</button>
+    <button >Fazer Login</button>
     
     </body>
 </html>
