@@ -83,6 +83,8 @@
 		//=============================
 		//GLOBARIAR VARIAVEIS
 		//=============================	
+		var referenciaColecao="";
+		
 		var dados={};
 		var primeiro_nome="";
 		var nome_meio="";
@@ -136,7 +138,6 @@
 
 		function insUsuario(){
 
-			var referenciaColecao = firebase.database().ref(caminhoColecao);
 		    //alert(dados.id);
 		    alert(referenciaColecao);
 
@@ -220,6 +221,8 @@
 		// Example starter JavaScript for disabling form submissions if there are invalid fields
 		(function () {
 		  'use strict'
+			
+		referenciaColecao = firebase.database().ref(caminhoColecao);
 
 		  // Fetch all the forms we want to apply custom Bootstrap validation styles to
 		  var forms = document.querySelectorAll('.needs-validation')
