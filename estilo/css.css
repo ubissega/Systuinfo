@@ -1,3 +1,9 @@
+.bg-login{    
+    background: url('https://imgur.com/ANgNh5H') no-repeat fixed;
+}
+.bg-main{    
+    background: url('https://imgur.com/sqq5Rb6') no-repeat fixed;
+}
 .login-body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -6,7 +12,6 @@
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background: url('https://imgur.com/ANgNh5H') no-reapet fixed;
 }
 
 .login-container {
