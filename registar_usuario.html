@@ -86,7 +86,7 @@
 		
 		var caminhoColecaoUsuario = "systuinfo";
 		var referenciaBD="https://systuinfo-default-rtdb.firebaseio.com/systuinfo/usuario";
-	    	verificarExistenciaID(numeroAleatorio);
+	    	//verificarExistenciaID(numeroAleatorio);
 
 		var dados={};
 		var primeiro_nome="";
@@ -142,7 +142,16 @@
 		function insUsuario(){
 			var bd= firebase.database().ref(caminhoColecaoUsuario);
 		    	//alert(dados.id);
-		    	alert(bd);
+		    	alert(bd);   
+			bd.orderByChild("id").equalTo(numeroAleatorio).once('value').then(function(snapshot) {
+		        if (snapshot.exists()) {
+		            alert("TRUE");// true;
+		        } else {
+		            alert("FALSE");//return false;
+		        }
+		    }).catch(function(erro) {
+		        alert("Erro ao verificar a existência do ID:", erro);
+		    });
 
 		}
 	
@@ -152,7 +161,7 @@
 		//TRABALHANDO NA REALTIME DATABASE FIREBASE
 		//============================================================================================================
 		
-
+/*
 		//===================================
 		// VERIFICAR SE O ID DO USUÁRIO EXISTE
 		//====================================
@@ -167,7 +176,7 @@
 		        alert("Erro ao verificar a existência do ID:", erro);
 		    });
 		}	
-/*
+
 		//==============================
 		//INSERÇÃO DA IMAGEM NA BASE DE DADOS
 		//==============================
