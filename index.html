@@ -46,6 +46,7 @@
     </div>
 
     <script>
+        		var referenciaColecao = firebase.database().ref(caminhoColecao);
         // Função para fazer login com e-mail e senha
         function fazerLogin() {
             const email = document.getElementById('email').value;
