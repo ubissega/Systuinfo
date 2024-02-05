@@ -100,16 +100,16 @@
 
 		function exibirImagem() {
 			arquivoImagem = inputImagem.files[0];
-
-	        // Atualize a imagem de preview com a URL do arquivo selecionado
-	        const urlImagem = URL.createObjectURL(arquivoImagem);
-	        imagemPreview.src = urlImagem;
-
-	        // Exiba a imagem de preview
-	        imagemPreview.style.display = 'block';
-	        alert(arquivoImagem);
-	    
-	    }
+	
+			// Atualize a imagem de preview com a URL do arquivo selecionado
+			const urlImagem = URL.createObjectURL(arquivoImagem);
+			imagemPreview.src = urlImagem;
+	
+			// Exiba a imagem de preview
+			imagemPreview.style.display = 'block';
+			alert(arquivoImagem);
+		    
+		 }
 
 		function validacao2() {
 	    
@@ -139,7 +139,7 @@
 		}
 
 		function insUsuario(){
-			var bd= firebase.database().ref(caminhoColecao);
+			var bd= firebase.database().ref(caminhoColecaoUsuario);
 		    	//alert(dados.id);
 		    	alert(bd);
 
