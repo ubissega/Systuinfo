@@ -149,23 +149,31 @@
 		var caminhoColecao = "systuinfo/usuario";
 var referenciaColecao = firebase.database().ref(caminhoColecao);
 
-//===================================
+		//===================================
 // VERIFICAR SE O ID DO USUÁRIO EXISTE
 //====================================
 function verificarExistenciaID(idVerificar) {
-    return new Promise(function(resolve, reject) {
-        referenciaColecao.orderByChild("id").equalTo(idVerificar).once('value')
-            .then(function(snapshot) {
-                if (snapshot.exists()) {
-                    resolve(true);
-                } else {
-                    resolve(false);
-                }
-            })
-            .catch(function(erro) {
-                reject("Erro ao verificar a existência do ID: " + erro);
-            });
-    });
+    // Verificar se o caminhoColecao é uma string válida
+    if (typeof caminhoColecao !== 'string' || caminhoColecao.trim() === '') {
+        return Promise.reject("Caminho da coleção inválido");
+    }
+
+    // Verificar se a referência da coleção é válida
+    if (!referenciaColecao || typeof referenciaColecao !== 'object') {
+        return Promise.reject("Referência da coleção inválida");
+    }
+
+    return referenciaColecao.orderByChild("id").equalTo(idVerificar).once('value')
+        .then(function(snapshot) {
+            if (snapshot.exists()) {
+                return true;
+            } else {
+                return false;
+            }
+        })
+        .catch(function(erro) {
+            return Promise.reject("Erro ao verificar a existência do ID: " + erro);
+        });
 }
 
 // Exemplo de uso
@@ -179,6 +187,8 @@ verificarExistenciaID("seuID").then(function(resultado) {
     alert(erro);
 });
 
+
+		
 		/*
 		//==============================
 		//INSERÇÃO DA IMAGEM NA BASE DE DADOS
