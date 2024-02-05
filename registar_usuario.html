@@ -78,7 +78,8 @@
 		//GERADOR E VERIFICA:|AO DO ID
 		//=============================
 	    var numeroAleatorio = Math.floor(Math.random(111111111111111) * 999999999999999);
-	    //verificarExistenciaID(numeroAleatorio);
+	    var isExist=verificarExistenciaID(numeroAleatorio);
+		alert(isExist);
 
 		//=============================
 		//GLOBARIAR VARIAVEIS
@@ -141,7 +142,7 @@
 
 		}
 	
-	/*
+	
 
 		//===========================================================================================================
 		//TRABALHANDO NA REALTIME DATABASE FIREBASE
@@ -155,16 +156,15 @@
 		function verificarExistenciaID(idVerificar) {
 		    referenciaColecao.orderByChild("id").equalTo(idVerificar).once('value').then(function(snapshot) {
 		        if (snapshot.exists()) {
-		            alert("O ID", idVerificar, "existe na coluna 'id'.");
 		            return true;
 		        } else {
-		            alert("O ID", idVerificar, "NÃO existe na coluna 'id'.");
 		            return false;
 		        }
 		    }).catch(function(erro) {
 		        alert("Erro ao verificar a existência do ID:", erro);
 		    });
 		}
+		/*
 		//==============================
 		//INSERÇÃO DA IMAGEM NA BASE DE DADOS
 		//==============================
