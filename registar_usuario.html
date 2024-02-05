@@ -153,6 +153,22 @@
 			        console.log("Erro ao verificar a existência do ID:", erro);
 			});
 
+			
+			// Caminho para a coleção (ou nó) onde você deseja armazenar os dados
+			var caminhoColecao = "usuarios";
+
+			// Referência ao nó onde você deseja armazenar os dados
+			var referenciaNodo = database.ref(caminhoColecao);
+
+			// Insere os dados no banco de dados
+			referenciaNodo.push(dados)
+			  .then(function() {
+			    console.log("Dados inseridos com sucesso!");
+			  })
+			  .catch(function(erro) {
+			    console.error("Erro ao inserir dados:", erro);
+			  });
+
 		}
 	
 	
