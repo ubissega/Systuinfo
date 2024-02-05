@@ -40,15 +40,17 @@
 
     <script>
         // Função para fazer login com e-mail e senha
-        function iniciarSessao() {
-            const email = document.getElementById('email').value;
-            const senha = document.getElementById('senha').value;
+        function fazerLogin() {
+            const email = prompt("Digite seu e-mail:");
+            const senha = prompt("Digite sua senha:");
 
-            firebase.auth.signInWithEmailAndPassword(email, senha)
+            // Tentativa de login
+            firebase.auth().signInWithEmailAndPassword(email, senha)
                 .then(userCredential => {
                     // Usuário autenticado com sucesso
                     const user = userCredential.user;
                     console.log("Usuário autenticado com UID:", user.uid);
+
                     // Exemplo: redirecionar para outra página após o login
                     window.location.href = "inicio.html";
                 })
@@ -56,7 +58,10 @@
                     console.error("Erro ao fazer login:", error.message);
                 });
         }
-    </script>   
+    </script>
+
+    <!-- Adicione um botão para fazer login -->
+    <button onclick="fazerLogin()">Fazer Login</button>
     
     </body>
 </html>
