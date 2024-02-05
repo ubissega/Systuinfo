@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
      // firebase.js conexao com a firebase BD google
-     const firebaseConfig = {
+     export const firebaseConfig = {
           apiKey: "AIzaSyDohCeHRGxRiO4sfN9pOFHVUqe01cuzUEg",
           authDomain: "systuinfo.firebaseapp.com",
           databaseURL: "https://systuinfo-default-rtdb.firebaseio.com",
