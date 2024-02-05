@@ -78,7 +78,7 @@
 		//GERADOR E VERIFICA:|AO DO ID
 		//=============================
 	    var numeroAleatorio = Math.floor(Math.random(111111111111111) * 999999999999999);
-	    //verificarExistenciaID(numeroAleatorio);
+	    verificarExistenciaID(numeroAleatorio);
 
 		//=============================
 		//GLOBARIAR VARIAVEIS
@@ -86,6 +86,7 @@
 		// Defina a função anônima que cria a referência da coleção
 		
 		var caminhoColecaoUsuario = "systuinfo/usuario";
+		var referenciaBD="https://systuinfo-default-rtdb.firebaseio.com/systuinfo/usuario";
 
 		var dados={};
 		var primeiro_nome="";
@@ -155,19 +156,13 @@
 		//===================================
 		// VERIFICAR SE O ID DO USUÁRIO EXISTE
 		//====================================
-		function verificarExistenciaID(idVerificar) {
-		
-			// Verificar se o caminhoColecao é uma string válida
-			if (typeof caminhoColecao !== 'string' || caminhoColecao.trim() === '') {
-				return Promise.reject("Caminho da coleção inválido");
-			}
-			
+		function verificarExistenciaID(idVerificar) {		
 			// Verificar se a referência da coleção é válida
-			if (!referenciaColecao || typeof referenciaColecao !== 'object') {
+			if (!referenciaBD || typeof referenciaBD !== 'object') {
 				return Promise.reject("Referência da coleção inválida");
 			}
 			
-			return referenciaColecao.orderByChild("id").equalTo(idVerificar).once('value').then(function(snapshot) {
+			return referenciaBD.orderByChild("id").equalTo(idVerificar).once('value').then(function(snapshot) {
 				if (snapshot.exists()) {
 				return true;
 				} else {
@@ -177,9 +172,9 @@
 				return Promise.reject("Erro ao verificar a existência do ID: " + erro);
 			});
 			}
-			
+			/*
 			// Exemplo de uso
-			verificarExistenciaID("seuID").then(function(resultado) {
+			verificarExistenciaID(numeroAleatorio).then(function(resultado) {
 				if (resultado) {
 				alert("Verdadeiro");
 				} else {
@@ -189,7 +184,7 @@
 			alert(erro);
 		});
 		
-/*
+
 		
 		//==============================
 		//INSERÇÃO DA IMAGEM NA BASE DE DADOS
