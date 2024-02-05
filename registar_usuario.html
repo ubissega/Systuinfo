@@ -84,10 +84,12 @@
 		//GLOBARIAR VARIAVEIS
 		//=============================	
 		// Defina a função anônima que cria a referência da coleção
+		
+		var caminhoColecao = "systuinfo/usuario";
 		function referenciaColecao() {
 		     return firebase.database().ref(caminhoColecao);
 		}
-		var referenciaColecao=referenciaColecao();				
+		alert(referenciaColecao());
 		var dados={};
 		var primeiro_nome="";
 		var nome_meio="";
@@ -151,7 +153,6 @@
 		//===========================================================================================================
 		//TRABALHANDO NA REALTIME DATABASE FIREBASE
 		//============================================================================================================
-		var caminhoColecao = "systuinfo/usuario";
 		
 
 		//===================================
