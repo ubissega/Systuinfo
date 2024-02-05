@@ -145,12 +145,12 @@
 		    	alert(bd);   
 			bd.ref('systuinfo/usuario').orderByChild('id').equalTo(numeroAleatorio).once('value').then(function(snapshot) {
 			        if (snapshot.exists()) {
-			            alert("TRUE");// true;
+			            console.log("TRUE");// true;
 			        } else {
-			            alert("FALSE");//return false;
+			            console.log("FALSE");//return false;
 			        }
 			    }).catch(function(erro) {
-			        alert("Erro ao verificar a existência do ID:", erro);
+			        console.log("Erro ao verificar a existência do ID:", erro);
 			});
 
 		}
