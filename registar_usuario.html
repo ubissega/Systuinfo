@@ -85,11 +85,8 @@
 		//=============================	
 		// Defina a função anônima que cria a referência da coleção
 		
-		var caminhoColecao = "systuinfo/usuario";
-		function referenciaColecao() {
-		     return firebase.database().ref(caminhoColecao);
-		}
-		alert(referenciaColecao());
+		var caminhoColecaoUsuario = "systuinfo/usuario";
+
 		var dados={};
 		var primeiro_nome="";
 		var nome_meio="";
@@ -142,9 +139,9 @@
 		}
 
 		function insUsuario(){
-
-		    //alert(dados.id);
-		    alert(referenciaColecao());
+			var bd= firebase.database().ref(caminhoColecao);
+		    	//alert(dados.id);
+		    	alert(bd);
 
 		}
 	
