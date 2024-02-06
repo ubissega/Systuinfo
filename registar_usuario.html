@@ -54,7 +54,7 @@
 			    		<span class="invalid-feedback">Obrigatorio</span>
 			    	</div>
 					<div class="col-md-6">						
-			    		<input type="file" name="id_pic_perfil" class="form-control" onchange="exibirImagem()">
+			    		<input type="file" name="id_pic_perfil" class="form-control" >
 			    		<span class="valid-feedback">Nao obrigatorio</span>
 			    	</div>
 					<div class="col-md-6">						
@@ -96,8 +96,6 @@ const firebaseConfig = {
 		//=============================	
 		// Defina a função anônima que cria a referência da coleção
 		
-		var caminhoColecaoUsuario = "systuinfo";
-		var referenciaBD="https://systuinfo-default-rtdb.firebaseio.com/systuinfo/usuario";
 	    	//verificarExistenciaID(numeroAleatorio);
 
 		var primeiro_nome="";
