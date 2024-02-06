@@ -9,13 +9,13 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link href="https://ubissega.github.io/Systuinfo/estilo/css.css" rel="stylesheet" />
     
-    <!-- Use a versão 8 do Firebase SDK para evitar problemas com módulos ESM -->
+    <!-- Use a versão 8 do Firebase SDK para evitar problemas com módulos ESM 
     <script defer src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
     <script defer src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
     <script defer src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
-    
-    <!-- Adicione aqui as configurações do seu projeto Firebase -->
-    <script defer src="js/firebase.js"></script>
+	    
+    <!-- Adicione aqui as configurações do seu projeto Firebase 
+    <script defer src="js/firebase.js"></script>-->
 
     <style type="text/css">
 		.bg-main{    
@@ -72,8 +72,20 @@
 
 
 
-	<script>
-
+	<script type="module" >
+		import {initializeApp} from "https://www.gstatic.com/firebasejs/9.1.0/firebase-app.js" ;
+import {getDatabase,get,ref,set,child } from "https://www.gstatic.com/firebasejs/9.1.0/firebase-database.js" ;
+const firebaseConfig = {
+          apiKey: "AIzaSyDohCeHRGxRiO4sfN9pOFHVUqe01cuzUEg",
+          authDomain: "systuinfo.firebaseapp.com",
+          databaseURL: "https://systuinfo-default-rtdb.firebaseio.com",
+          projectId: "systuinfo",
+          storageBucket: "systuinfo.appspot.com",
+          messagingSenderId: "604412345972",
+          appId: "1:604412345972:web:96338d9c4f5853d1765b21"
+     };
+		firebase.initializeApp(firebaseConfig);
+		var db=getDatabase();
 		//=============================
 		//GERADOR E VERIFICA:|AO DO ID
 		//=============================
@@ -88,7 +100,6 @@
 		var referenciaBD="https://systuinfo-default-rtdb.firebaseio.com/systuinfo/usuario";
 	    	//verificarExistenciaID(numeroAleatorio);
 
-		var dados={};
 		var primeiro_nome="";
 		var nome_meio="";
 		var ultimo_nome="";
@@ -99,7 +110,7 @@
 		var imagemPreview = document.getElementById('imagem-preview');	
 		var arquivoImagem="";
 
-		function exibirImagem() {
+		 inputImagem.onchange=function() {
 			arquivoImagem = inputImagem.files[0];
 	
 			// Atualize a imagem de preview com a URL do arquivo selecionado
@@ -140,36 +151,9 @@
 		}
 
 		function insUsuario(){
-			var bd= firebase.database();
-		    	//alert(dados.id);
-		    	alert(bd);   
-			/*
-			bd.ref('systuinfo/usuario').orderByChild('id').equalTo(numeroAleatorio).once('value').then(function(snapshot) {
-			        if (snapshot.exists()) {
-			            console.log("TRUE");// true;
-			        } else {
-			            console.log("FALSE");//return false;
-			        }
-			    }).catch(function(erro) {
-			        console.log("Erro ao verificar a existência do ID:", erro);
-			});
-*/
-			
-			// Caminho para a coleção (ou nó) onde você deseja armazenar os dados
-			var caminhoColecao = "usuarios";
-
-			// Referência ao nó onde você deseja armazenar os dados
-			var referenciaNodo = database.ref(caminhoColecao);
-
-			// Insere os dados no banco de dados
-			bd.ref('systuinfo').push(dados)
-			  .then(function() {
-			    console.log("Dados inseridos com sucesso!");
-			  })
-			  .catch(function(erro) {
-			    console.error("Erro ao inserir dados:", erro);
-			  });
-
+			set(ref(db, "systuinfo/usuario/"+ numeroAleatorio), {
+				primeiro_nome:primeiro_nome
+			}).then(()=>{alert("Sucesso")}).catch((error)=>{alert("Falha")});
 		}
 	
 	
@@ -231,8 +215,9 @@
 		  Array.prototype.slice.call(forms)
 		    .forEach(function (form) {
 		      form.addEventListener('submit', function (event) {
+			      event.preventDefault()
 		        if (!form.checkValidity()) {
-		          event.preventDefault()
+
 		          event.stopPropagation()
 		        }else{
 		        	validacao2();
