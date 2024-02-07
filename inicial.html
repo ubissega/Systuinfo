@@ -1,48 +1,510 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Firebase Authentication Example</title>
-    <!-- Use a versão 8 do Firebase SDK para evitar problemas com módulos ESM -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Inicial systuinfo</title>
+
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+
+    <!-- Use a versão 8 do Firebase SDK para evitar problemas com módulos ESM 
     <script defer src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
     <script defer src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
     <script defer src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
-    <!-- Adicione aqui as configurações do seu projeto Firebase -->
-    <script defer src="js/firebase.js"></script>
+-->
 
-    <style type="text/css">
+ 
+
+	<style type="text/css">
+		body{
+			background: url('https://i.imgur.com/ANgNh5H.png') no-repeat fixed;
+			background-size: cover;
+		}
+		.bg-login{    
+		    background: url('https://i.imgur.com/ANgNh5H.png') no-repeat fixed;
+		    background-size: cover;
+		}
 		.bg-main{    
 		    background: url('https://i.imgur.com/sqq5Rb6.png') no-repeat fixed;
 		    background-size: cover;
 		}
+		.nav-body {
+		    font-family: Arial, sans-serif;
+		    margin: 0;
+		    padding: 0;
+		    display: flex;
+		    align-items: self-end;
+		    height: 15vh;
+		    color: #55e7ff;
+		}
+		.card{
+			color: #293040;
+		}
+		.nav-main-body {
+		    font-family: Arial, sans-serif;
+		    margin: 0;
+		    padding: 0;
+		    display: flex;
+		    align-items: self-end;
+		    height: 10vh;
+		    color: #55e7ff;
+		}
+		.t-s{
+			text-shadow: 0 0 50px #55e7ff;
+		}
+		.bg-t-h1{
+			background: #55e7ff50;
+			border: solid 2px #55e7ff;
+		}
+		.b-b{
+		    justify-content: space-between;
+			border-bottom: solid 2px #55e7ff;
+		}
+		.login-body {
+		    font-family: Arial, sans-serif;
+		    margin: 0;
+		    padding: 0;
+		    display: flex;
+		    justify-content: center;
+		    align-items: center;
+		    height: 80vh;
+		}
+		.inicio-body {
+		    font-family: Arial, sans-serif;
+		    margin: 0;
+		    padding: 0;
+		    display: flex;
+		    justify-content: center;
+		    align-items: center;
+		    height: 90vh;
+		}
+
+		.login-container {
+		    background-color: #29304050;
+		    padding: 20px;
+		    border-radius: 8px;
+		    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+		    width: 300px;
+		    max-width: 80%;
+		    color: #fff;
+		}
+		.inicio-container {
+			background: transparent;
+		    border-radius: 8px;
+		    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+		    width: 100%;
+		}
+		.insc-container {
+		    background-color: #29304050;
+		    padding: 20px;
+		    border-radius: 8px;
+		    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+		    width: 50%;
+		    max-width: 50%;
+		    color: #fff;
+		}
+
+		.login-container h2 {
+		    text-align: center;
+		}
+
+		.login-form {
+		    margin-top: 20px;
+		}
+
+		.form-group {
+		    margin-bottom: 15px;
+		}
+
+		.form-group label {
+		    display: block;
+		    margin-bottom: 5px;
+		}
+
+		.form-group input {
+		    width: 100%;
+		    padding: 8px;
+		    margin: 3px;
+		    box-sizing: border-box;
+		    border: 1px solid #ccc;
+		    border-radius: 4px;
+		}
+
+		.form-group button {
+		    background-color: #55e7ff;
+		    color: #293040;
+		    padding: 10px;
+		    border: none;
+		    border-radius: 4px;
+		    cursor: pointer;
+		    width: 100%;
+		}
+		.bg-btn{
+			background-color: #55e7ff;
+		    color: #293040;
+
+		}
+		.form-group span{
+			margin-left: 8px;
+		}
+
+		@media (max-width: 600px) {
+		    .login-container {
+		        width: 90%;
+		    }
+		}
+
     </style>
 </head>
-<body class="bg-main">
-    <h1>Firebase Authentication Example</h1>
+<body class="bg-main container">
+	<div class="d-fixed-top sticky-top">
+			
+		<nav class="position-relative nav-main-body ">
+			<div class=" bg-btn d-flex justify-content-between position-absolute my-1 top-100 start-0 btn w-100 bg-">
+				<a class=" btn btn-success" data-bs-toggle="offcanvas" href="#conteudos" role="button" aria-controls="offcanvasExample">Conteudo</a>
+				<div>
+					<a class=" btn-success">Conteudo</a>
+					<a class=" btn-success">Conteudo</a>
+					<a class=" btn-success">Conteudo</a>					
+				</div>
+			</div>
+			<div class="d-flex justify-content-between b-b w-100 ">
+				<h1 class="bg-t-h1 text-uppercase t-s">systuinfo</h1>
+			   	<div class="dropdown">
+			   		<button class="btn btn-secondary" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">Nome completo</button>
+					<ul class="dropdown-menu dropdown-menu-dark w-100" aria-labelledby="dropdownMenuButton2">
+					<li><a class="dropdown-item" href="index.html">Suporte</a></li>
+					<li><a class="dropdown-item" href="index.html">Minha informação</a></li>
+					<li><a class="dropdown-item" href="index.html">Terminar sessao</a></li>
+					<li><hr class="dropdown-divider"></li>
+					<li><a class="dropdown-item" href="#">Manual de uso</a></li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+		<div class="position-relative">			
+			<div class="offcanvas offcanvas-start" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="conteudos" aria-labelledby="offcanvasScrollingLabel">
+				<button type="button" class="btn-close text-reset position-absolute top-0 start-0 btn" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+				<div class="offcanvas-header justify-content-around d-grid">
+					<blockquote class="imgur-embed-pub" lang="en" data-id="a/zokM3EO" data-context="false" ><a href="//imgur.com/a/zokM3EO"></a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>		
+					<h5 class="offcanvas-title" id="offcanvasExampleLabel">Sistema de informação do estudante</h5>
+					<hr>
+					<h4 class="offcanvas-title" id="offcanvasExampleLabel">Conteudo</h4>
+					
+				</div>
+				<div class="offcanvas-body">
+					<div>
+					Curos: Tecnologias de informação
+					</div>
+					<div class="dropdown mt-3">
+						<button class="btn btn-secondary dropdown-toggle w-100" type="button" id="int" data-bs-toggle="dropdown">
+						Começãndo
+						</button>
+						<ul class="dropdown-menu w-100" aria-labelledby="int">
+							<li><button class="dropdown-item" type="button" data-bs-toggle="offcanvas" data-bs-target="#canva_introdution" aria-controls="offcanvasRight">Introdução</button></li>
+						</ul>
+					</div>
+					<div class="dropdown mt-3">
+						<button class="btn btn-secondary dropdown-toggle w-100" type="button" id="pa" data-bs-toggle="dropdown">
+						Primeiro ano
+						</button>
+						<ul class="dropdown-menu w-100" aria-labelledby="pa">
+							<li><button class="dropdown-item" data-bs-dismiss="offcanvas" ficheiro="paps">Primeiro semestre</button></li>							
+							<li><button class="dropdown-item" data-bs-dismiss="offcanvas" ficheiro="pass">Segundo semestre</button></li>
+						</ul>
+					</div>
+					<div class="dropdown mt-3">
+						<button class="btn btn-secondary dropdown-toggle w-100" type="button" id="sa" data-bs-toggle="dropdown">
+						Segundo ano
+						</button>
+						<ul class="dropdown-menu w-100" aria-labelledby="sa">
+							<li><button class="dropdown-item" data-bs-dismiss="offcanvas" ficheiro="saps">Primeiro semestre</button></li>							
+							<li><button class="dropdown-item" data-bs-dismiss="offcanvas" ficheiro="sass">Segundo semestre</button></li>
+						</ul>
+					</div>
+					<div class="dropdown mt-3">
+						<button class="btn btn-secondary dropdown-toggle w-100" type="button" id="ta" data-bs-toggle="dropdown">
+						Terceiro ano
+						</button>
+						<ul class="dropdown-menu w-100" aria-labelledby="ta">
+							<li><button class="dropdown-item" data-bs-dismiss="offcanvas" ficheiro="taps">Primeiro semestre</button></li>							
+							<li><button class="dropdown-item" data-bs-dismiss="offcanvas" ficheiro="tass">Segundo semestre</button></li>
+						</ul>
+					</div>
+					<div class="dropdown mt-3">
+						<button class="btn btn-secondary dropdown-toggle w-100" type="button" id="qa" data-bs-toggle="dropdown">
+						Quarto ano
+						</button>
+						<ul class="dropdown-menu w-100" aria-labelledby="qa">
+							<li><button class="dropdown-item" data-bs-dismiss="offcanvas" ficheiro="qaps">Primeiro semestre</button></li>							
+							<li><button class="dropdown-item" data-bs-dismiss="offcanvas" ficheiro="qass">Segundo semestre</button></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="inicio-body">					
+		<div class="inicio-container">	
+			<iframe id="iframe_disposicao_semestral" width="100%" height="500px" frameborder="0" style="display: none;"></iframe>
+		</div>
+	</div>
+  	<footer class="footer text-uppercase">
+  		Todos os direitos reservados copyriht systuinfo . 2024
+  	</footer>
 
-    <script>
-        // Função para fazer login com e-mail e senha
-        function fazerLogin() {
-            const email = prompt("Digite seu e-mail:");
-            const senha = prompt("Digite sua senha:");
 
-            // Tentativa de login
-            firebase.auth().signInWithEmailAndPassword(email, senha)
-                .then(userCredential => {
-                    // Usuário autenticado com sucesso
-                    const user = userCredential.user;
-                    console.log("Usuário autenticado com UID:", user.uid);
 
-                    // Exemplo: redirecionar para outra página após o login
-                    window.location.href = "pagina_logada.html";
-                })
-                .catch(error => {
-                    console.error("Erro ao fazer login:", error.message);
-                });
-        }
-    </script>
+  	<offcanvas>
+		<div class="offcanvas offcanvas-end w-75" data-bs-scroll="false" tabindex="-1" id="canva_introdution" aria-labelledby="offcanvass">
+			<div class="offcanvas-header">
+				<h5 id="offcanvasRightLabel">Introdução</h5>
+				<button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+			</div>
+			<div class="offcanvas-body">
+				<p>
+					O curso de Tecnologias de Informação oferecido pelo ICT (Instituto de Ciência e Tecnologia) é um programa abrangente que visa capacitar os estudantes com habilidades essenciais para enfrentar os desafios e demandas do mundo digital em constante evolução. Sob a coordenação do experiente Muhamad, mestre em programação, o curso é ministrado por uma equipe de docentes altamente qualificados e especializados em diversas áreas-chave da tecnologia da informação.
 
+					Um dos docentes é Watson, um analista de rede de computadores corporativo com vasta experiência no setor. Sua expertise proporciona aos alunos uma compreensão profunda dos princípios de rede, segurança cibernética e infraestrutura de TI, essenciais para o funcionamento eficiente e seguro dos sistemas de informação nas organizações.
+
+					Outro membro do corpo docente é Vasco, um especialista em sistemas de base de dados. Com seu conhecimento aprofundado em gerenciamento de dados e sistemas de banco de dados, Vasco oferece insights valiosos sobre a modelagem, implementação e manutenção de sistemas de informações fundamentais para empresas de todos os setores.
+
+					O projeto desenvolvido por um grupo de estudantes dedicados em 2023 sob a orientação desses instrutores exemplifica o comprometimento e a determinação dos alunos em adquirir habilidades práticas e aplicáveis no campo da tecnologia da informação. Numa época em que os desafios eram significativos, esses alunos demonstraram resiliência e perseverança para superar obstáculos e alcançar o sucesso.
+
+					O curso de Tecnologias de Informação do ICT, com sua equipe docente capacitada e engajada, continua a oferecer uma educação de alta qualidade que prepara os alunos para se destacarem em um mercado de trabalho cada vez mais competitivo e dinâmico.
+				</p>
+			</div>
+		</div>
+
+
+		<div class="offcanvas offcanvas-end w-75" data-bs-scroll="false" tabindex="-1" id="canva_pa" aria-labelledby="offcanvass">
+			<div class="offcanvas-header d-grid sticky-top d-fixed-top">
+				<h5 id="offcanvasRightLabel " class="text-uppercase">Bem vindo ao primeiro semestre do primeiro ano</h5>
+				<hr>
+				<button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+
+				<p class="col-md-12">
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+					quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+					consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+					cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+					proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+				</p>
+			</div>
+			<div class="offcanvas-body row">
+				<div class="col-md-6 card p-2 m-1">
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+					quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+					consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+					cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+					proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+				</div>
+				<div class="col-md-6 card p-2 m-1">
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+					quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+					consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+					cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+					proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+				</div>
+				<div class="col-md-6 card p-2 m-1">
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+					quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+					consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+					cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+					proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+				</div>
+				<div class="col-md-6 card p-2 m-1">
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+					quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+					consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+					cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+					proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+				</div>
+				<div class="col-md-6 card p-2 m-1">
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+					quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+					consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+					cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+					proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+				</div>
+				<div class="col-md-6 card p-2 m-1">
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+					quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+					consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+					cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+					proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+				</div>
+				<div class="col-md-6 card p-2 m-1">
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+					quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+					consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+					cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+					proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+				</div>
+				<div class="col-md-6 card p-2 m-1">
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+					quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+					consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+					cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+					proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+				</div>
+				<div class="col-md-6 card p-2 m-1">
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+					quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+					consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+					cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+					proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+				</div>
+				<div class="col-md-6 card p-2 m-1">
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+					quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+					consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+					cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+					proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+				</div>
+			</div>
+		</div>
+  	</offcanvas>
+
+
+	<script type="module">
+
+		//====================================
+		//INICIALIZANDO A CONEXAO COM FIREBASE
+		//====================================
+
+		//Importacao do que precisamos trabalhar
+		//--------------------------------------
+		import {initializeApp} from "https://www.gstatic.com/firebasejs/9.1.0/firebase-app.js";
+		import {getDatabase,get,ref,set,child} from "https://www.gstatic.com/firebasejs/9.1.0/firebase-database.js";
+		import {getAuth, createUserWithEmailAndPassword} from "https://www.gstatic.com/firebasejs/9.1.0/firebase-auth.js";
+		import {getStorage,getDownloadURL, ref as storageRef, uploadBytes } from "https://www.gstatic.com/firebasejs/9.1.0/firebase-storage.js";
+
+	    const firebaseConfig = {
+	          apiKey: "AIzaSyDohCeHRGxRiO4sfN9pOFHVUqe01cuzUEg",
+	          authDomain: "systuinfo.firebaseapp.com",
+	          databaseURL: "https://systuinfo-default-rtdb.firebaseio.com",
+	          projectId: "systuinfo",
+	          storageBucket: "systuinfo.appspot.com",
+	          messagingSenderId: "604412345972",
+	          appId: "1:604412345972:web:96338d9c4f5853d1765b21"
+	     };
+	     
+	     // Inicialize o Firebase
+	    var app=initializeApp(firebaseConfig);
+		var db=getDatabase(app);
+		var storage = getStorage(app);
+		var auth = getAuth(app);
+
+
+		//==============================================================================
+		//REGENCIANDO A FIREBASE
+		//==============================================================================
+
+		// Verifique se há um usuário autenticado
+		//---------------------------------------
+		const user = auth.currentUser;
+
+		if (user) {
+			// O usuário está autenticado, você pode acessar suas informações
+			const uid = user.uid;
+			const email = user.email;
+			const phoneNumber = user.phoneNumber;
+
+			console.log('UID do usuário:', uid);
+			console.log('Endereço de e-mail do usuário:', email);
+			console.log('Número de telefone do usuário:', phoneNumber);
+		} else {
+			// Não há nenhum usuário autenticado no momento
+			//window.location.href = 'index.html';
+		}
+
+
+
+
+
+		// Example starter JavaScript for disabling form submissions if there are invalid fields
+		(function () {
+		  'use strict'
+
+		  // Fetch all the forms we want to apply custom Bootstrap validation styles to
+		  var forms = document.querySelectorAll('.needs-validation')
+
+		  // Loop over them and prevent submission
+		  Array.prototype.slice.call(forms)
+		    .forEach(function (form) {
+		      form.addEventListener('submit', function (event) {
+		        event.preventDefault()
+		        if (!form.checkValidity()) {
+		          event.stopPropagation()
+		        }else{
+		        	validacao2();
+		        }
+
+		        form.classList.add('was-validated')
+		      }, false)
+		    })
+		})()
+
+		
+	</script>
+	<script type="text/javascript">
+
+		/*
+		// Obtém a URL da página atual
+		var urlAtual = window.location.href;
+		let ultimaBarraIndex = urlAtual.lastIndexOf("?");
+		var ficheiro_disposicao = urlAtual.substring(ultimaBarraIndex + 1);
+		console.log(ficheiro_disposicao);
+		var b=document.getElementById('button');
+		b.setAttribute('data-bs-target',"#canva_introdution");
+		b.setAttribute('aria-controls',"offcanvasRight");
+		b.setAttribute('type',"button");
+		b.setAttribute('data-bs-toggle',"offcanvas.show");
+
+		document.body.appendChild(b);
+		// Criar e disparar um evento de clique no botão
+		var event = new MouseEvent('click', {
+		  bubbles: true,
+		  cancelable: true,
+		  view: window
+		});
+		b.dispatchEvent(event);
+
+		*/
+
+		var buttons = document.querySelectorAll('button');
+
+		buttons.forEach(function(button) {
+		    button.addEventListener('click', function() {
+		        var targetName = button.getAttribute('ficheiro');
+		        var nome_ficheiro_disposicao=targetName+".html";
+				if(targetName!=null){
+					document.querySelector('#iframe_disposicao_semestral').style.display = "block";
+					document.querySelector('#iframe_disposicao_semestral').setAttribute('src',"conteudo/it/"+nome_ficheiro_disposicao);
+				}
+		    });
+		});
+
+			
+	</script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+</body>
+</html>
     <!-- Adicione um botão para fazer login -->
     <button onclick="fazerLogin()">Fazer Login</button>
 </body>
