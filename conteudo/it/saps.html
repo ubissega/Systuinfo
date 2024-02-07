@@ -1,0 +1,506 @@
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<style type="text/css">
+	.p{
+		background: #55e7ff30;
+		color: #293090;
+	}
+</style>
+<div class="p">
+	<h1 class="text-uppercase">Bem vindo a primeiro semestre do segundo ano</h1>
+	<hr>
+	<div class="row p-2">
+		<div class="col-md-11">
+			<h4 class="text-uppercase">Principais cadeiras</h4>							
+		</div>
+		<div class="col-md-6" style="display:none;">
+			<div id="adbd" name="card" class="card m-1 p-3">
+				<h3 class="">Analise de Desenho de Base de Dados</h3>
+				<hr>
+				<span>
+					Uma análise de desenho de banco de dados envolve a revisão e avaliação do design de um banco de dados, com o objetivo de garantir que atenda aos requisitos do sistema, seja eficiente, seguro e fácil de manter.
+				</span>
+				<hr> 
+				<div class="row w-100">
+					<label class="col-md-4"><b>Nome do docente</b></label>
+					<label class="col-md-3"><b>Sala de aula</b></label>
+					<label class="col-md-2"><b>Hora</b></label>	
+					<label class="col-md-3"><b>dias</b></label>					
+				</div>
+				<div class="row w-100">
+					<label class="col-md-4">Vasco Alberto Macicame</label>
+					<label class="col-md-3">Informatica</label>
+					<label class="col-md-2" name="lhora" id="adbdhora">15h40-17h10</label>
+					<label class="col-md-3" name="ldias" id="adbddias">Segunda/Quarta</label>
+				</div>
+				<div class="row w-100">
+					<button class="btn col-md-3">Manuais</button>
+					<button class="btn col-md-3" type="button" data-bs-toggle="offcanvas" data-bs-target="#canva_leitura_aula" aria-controls="offcanvasRight">Leitura</button>
+					<button class="btn col-md-3">Pratica</button>
+					<button class="btn col-md-3">Mais</button>
+				</div>
+			</div>	
+		</div>
+		<div class="col-md-6" style="display:none;">
+			<div id="eda" name="card" class="card m-1 p-3">
+				<h3 class="">Estrudura de Dados e Algortimos</h3>
+				<hr>
+				<span>
+					Estrutura de Dados e Algoritmos são fundamentais para a resolução eficiente de problemas computacionais.
+				</span>
+				<hr> 
+				<div class="row w-100">
+					<label class="col-md-4"><b>Nome do docente</b></label>
+					<label class="col-md-3"><b>Sala de aula</b></label>
+					<label class="col-md-2"><b>Hora</b></label>	
+					<label class="col-md-3"><b>dias</b></label>					
+				</div>
+				<div class="row w-100">
+					<label class="col-md-4">Mohammad Lorgat</label>
+					<label class="col-md-3">Informatica II</label>
+					<label class="col-md-2" name="lhora" id="edahora">14h00-15h30</label>
+					<label class="col-md-3" name="ldias" id="edadias">Terça/Quinta</label>
+				</div>
+				<div class="row w-100">
+					<button class="btn col-md-3">Manuais</button>
+					<button class="btn col-md-3" type="button" data-bs-toggle="offcanvas" data-bs-target="#canva_leitura_aula" aria-controls="offcanvasRight">Leitura</button>
+					<button class="btn col-md-3">Pratica</button>
+					<button class="btn col-md-3">Mais</button>
+				</div>
+			</div>	
+		</div>
+		<div class="col-md-6" style="display: none;">
+			<div id="fdpw" name="card" class="card m-1 p-3">
+				<h3 class="">Fundamentos de Desenho de PAginas Web</h3>
+				<hr>
+				<span>
+					O desenho de páginas da web envolve a criação de interfaces visuais para sites na internet.
+				</span>
+				<hr> 
+				<div class="row w-100">
+					<label class="col-md-4"><b>Nome do docente</b></label>
+					<label class="col-md-3"><b>Sala de aula</b></label>
+					<label class="col-md-2"><b>Hora</b></label>	
+					<label class="col-md-3"><b>dias</b></label>					
+				</div>
+				<div class="row w-100">
+					<label class="col-md-4">Watson Chanaka</label>
+					<label class="col-md-3">Multimedia</label>
+					<label class="col-md-2" name="lhora" id="fdpwdora">15h40-17h10</label>
+					<label class="col-md-3" name="ldias" id="fdpwdias">Terça/Quinta</label>
+				</div>
+				<div class="row w-100">
+					<button class="btn col-md-3">Manuais</button>
+					<button class="btn col-md-3" type="button" data-bs-toggle="offcanvas" data-bs-target="#canva_leitura_aula" aria-controls="offcanvasRight">Leitura</button>
+					<button class="btn col-md-3">Pratica</button>
+					<button class="btn col-md-3">Mais</button>
+				</div>
+			</div>	
+		</div>		
+		<div class="col-md-6" style="display: none;">
+			<div id="adoo" name="card" class="card m-1 p-3">
+				<h3 class="">Analise de Desenho Orientado para Objectos</h3>
+				<hr>
+				<span>
+					A Análise e Desenho Orientados a Objetos (ADOO) é uma abordagem para analisar, projetar e modelar sistemas de software com base nos princípios da programação orientada a objetos (POO).
+				</span>
+				<hr> 
+				<div class="row w-100">
+					<label class="col-md-4"><b>Nome do docente</b></label>
+					<label class="col-md-3"><b>Sala de aula</b></label>
+					<label class="col-md-2"><b>Hora</b></label>	
+					<label class="col-md-3"><b>dias</b></label>					
+				</div>
+				<div class="row w-100">
+					<label class="col-md-4">Bento Lulu Arao</label>
+					<label class="col-md-3">Informatica</label>
+					<label class="col-md-2" name="lhora" id="adoohora">17h20-18h50</label>
+					<label class="col-md-3" name="ldias" id="adoodias">Segunda/Quarta</label>
+				</div>
+				<div class="row w-100">
+					<button class="btn col-md-3">Manuais</button>
+					<button class="btn col-md-3" type="button" data-bs-toggle="offcanvas" data-bs-target="#canva_leitura_aula" aria-controls="offcanvasRight">Leitura</button>
+					<button class="btn col-md-3">Pratica</button>
+					<button class="btn col-md-3">Mais</button>
+				</div>
+			</div>	
+		</div>
+	</div>
+	<div  class="row p-2">
+		<div class="col-md-11">
+			<h4 class="text-uppercase" >Cadeiras secundarias</h4>							
+		</div>
+		<div class="col-md-6" style="display:none;">
+			<div id="i3" name="card" class="card m-1 p-3">
+				<h3 class="">Ingles III</h3>
+				<hr>
+				<span>
+					Inglês 3 é geralmente uma continuação do estudo do idioma inglês, com foco em habilidades mais avançadas de comunicação oral e escrita.
+				</span>
+				<hr> 
+				<div class="row w-100">
+					<label class="col-md-4"><b>Nome do docente</b></label>
+					<label class="col-md-3"><b>Sala de aula</b></label>
+					<label class="col-md-2"><b>Hora</b></label>	
+					<label class="col-md-3"><b>dias</b></label>					
+				</div>
+				<div class="row w-100">
+					<label class="col-md-4">Piotr Gebala</label>
+					<label class="col-md-3">Informatica I</label>
+					<label class="col-md-2" name="lhora" id="i3hora">14h00-15h30</label>
+					<label class="col-md-3" name="ldias" id="i3dias">Segunda/Quarta</label>
+				</div>
+				<div class="row w-100">
+					<button class="btn col-md-3">Manuais</button>
+					<button class="btn col-md-3" type="button" data-bs-toggle="offcanvas" data-bs-target="#canva_leitura_aula" aria-controls="offcanvasRight" >Leitura</button>
+					<button class="btn col-md-3">Pratica</button>
+					<button class="btn col-md-3">Mais</button>
+				</div>
+			</div>	
+		</div>
+	</div>
+
+	<hr>
+	<div class="row p-2" id="contetor_aula_online" style="display: none;">
+		<div class="col-md-11">
+			<h4 class="text-uppercase">Cadeira no estudo online</h4>							
+		</div>
+		<div class="col-md-6">
+			<div id="adbd" name="card" class="card m-1 p-3">
+				<div class="d-flex justify-content-between">
+					<h5 class="text-uppercase" id="titular_cadeira"></h5>
+					<span id="msg_estado_aula_oline"></span>
+				</div>
+				<hr>
+				<span id="topico_online"></span>
+				<hr> 
+				<div class="row w-100">
+					<label class="col-md-4"><b>Inicio</b></label>
+					<label class="col-md-3"><b>Fim</b></label>
+					<label class="col-md-2"><b></b></label>	
+					<label class="col-md-3"><b></b></label>					
+				</div>
+				<div class="row w-100">
+					<label class="col-md-4" id="lhorainicio"></label>
+					<label class="col-md-3" id="lhorafim"></label>
+					<label class="col-md-2" name="latecipar_online" style="display:none;"><button class="btn w-100">Antecipar</button></label>
+					<label class="col-md-3" name="lparticpar_online" style="display:none;"><button class="btn w-100">Participar</button></label>
+				</div>
+			</div>	
+		</div>
+	</div>
+	<hr>
+	<div class="row p-2">
+		<div class="col-md-6">
+			<button class="btn">
+				<a id="link_abre_disposicao">Espandir a tela</a>
+			</button>
+			<button id="btn_mostrar_todas_cadeiras" class="btn">
+				Mostrar todas as cadeiras
+			</button>
+		</div>
+	</div>
+
+	<offcanvas>
+	<div class="offcanvas offcanvas-end w-100" data-bs-scroll="false" tabindex="-1" id="canva_leitura_aula" aria-labelledby="offcanvass">
+		<div class="offcanvas-header">
+			<h5 id="titular_canva_leitura_aula">Introdução</h5>
+			<button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+		</div>
+		<div class="offcanvas-body">
+			<iframe id="iframe_aula" width="100%" height="500px" frameborder="0" style="display: none;"></iframe>				
+		</div>
+	</div>
+</offcanvas>
+
+<script type="text/javascript">
+
+	//===========================================================
+	//BASE DE DADOS
+	//===========================================================
+	var topico_online="vamos voar";
+	var hora_inicio="19:00";
+	var hora_final="20:00";
+
+	//===========================================================
+	//INICIALIZAR DADOS
+	//===========================================================
+
+	// Obtém a URL da página atual
+	var urlAtual = window.location.href;
+	let ultimaBarraIndex = urlAtual.lastIndexOf("/");
+	var ficheiro_disposicao = urlAtual.substring(ultimaBarraIndex + 1);
+	var estado_disposicao_extendida=false;
+
+	if (urlAtual.includes("false")) {
+		document.getElementById('link_abre_disposicao').innerHTML="Pagina principal";
+	}else{
+		document.getElementById('link_abre_disposicao').innerHTML="Espandir a tela";
+
+	}
+	
+
+
+
+	//lista de docente online, esses dados sao do ano letivo
+	//------------------------------------------------------
+
+	// Cria uma lista de itens
+	let lista_docente_online = [
+	  { dia: "Segunda", docente: "Bento Arao", cadeira:"ADOO", hora_inicio:hora_inicio, hora_final:hora_final, topico:topico_online},
+	  { dia: "Terça", docente: "Watson Chanaka", cadeira:"FDPW", hora_inicio:hora_inicio, hora_final:hora_final, topico:topico_online},
+	  { dia: "Quarta", docente: "Vasco Macicame", cadeira:"ADBD", hora_inicio:hora_inicio, hora_final:hora_final, topico:topico_online},
+	  { dia: "Quinta", docente: "Piotr Gebala", cadeira:"Ingles 3", hora_inicio:hora_inicio, hora_final:hora_final, topico:topico_online},
+	  { dia: "Sexta", docente: "Mohammad Lorgat", cadeira:"EDA", hora_inicio:hora_inicio, hora_final:hora_final, topico:topico_online}
+	];
+
+	// Cria uma lista de itens
+	let lista_docente_online = [
+	  { dia: "Segunda", docente: "Bento Arao", cadeira:"ADOO", hora_inicio:hora_inicio, hora_final:hora_final, topico:topico_online},
+	  { dia: "Terça", docente: "Watson Chanaka", cadeira:"FDPW", hora_inicio:hora_inicio, hora_final:hora_final, topico:topico_online},
+	  { dia: "Quarta", docente: "Vasco Macicame", cadeira:"ADBD", hora_inicio:hora_inicio, hora_final:hora_final, topico:topico_online},
+	  { dia: "Quinta", docente: "Piotr Gebala", cadeira:"Ingles 3", hora_inicio:hora_inicio, hora_final:hora_final, topico:topico_online},
+	  { dia: "Sexta", docente: "Mohammad Lorgat", cadeira:"EDA", hora_inicio:hora_inicio, hora_final:hora_final, topico:topico_online}
+	];
+
+
+
+	//===========================================================
+	//TRABALHO CARTOES DE CADEIRAS
+	//===========================================================
+
+	document.querySelectorAll('div[name="card"]').forEach(function(cartao) {
+		var targetName = cartao.getAttribute('id');
+		//document.getElementById(targetName).style.background= gerarNumeroAleatorio();
+		
+	    
+	});
+
+	//===========================================================
+	//TRABALHO HORA DE ENTRADA
+	//===========================================================
+	document.querySelectorAll('label[name="lhora"]').forEach(function(hora) {
+		var targetName = hora.getAttribute('id');
+		//console.log(document.getElementById(targetName).innerText);
+	    
+	});
+
+	//===========================================================
+	//TRABALHO NO DIAS
+	//===========================================================
+	var contetor_disposicao="";
+	
+	mostrarDisposicoesDeAcordoComDia("comDia");
+	function mostrarDisposicoesDeAcordoComDia(mostrar_todas_disposicoes){
+		document.querySelectorAll('label[name="ldias"]').forEach(function(dias) {
+			var id = dias.getAttribute('id');
+
+			let diaFeira = document.getElementById(id).innerText;
+			let diaSemFeira = dia().replace(/-feira/g, '');
+
+
+			//console.log(id);
+		    let elementoFilho = document.getElementById(id);
+
+			let elementoBAvo = elementoFilho.parentNode.parentNode.parentNode; // Obtém o elemento pai,avo,bavo
+			contetor_disposicao=elementoBAvo;
+
+			if(mostrar_todas_disposicoes=="semDia"){
+				elementoBAvo.setAttribute('estado',mostrar_todas_disposicoes);
+				elementoBAvo.style.display="block";
+			}else{
+				elementoBAvo.setAttribute('estado',mostrar_todas_disposicoes);
+				if (diaFeira.includes(diaSemFeira)) {
+
+					//==================================================
+					//EXIBIR CONTETOR DE AULA ONLINE DE ACORDO COM O DIA
+					//==================================================
+
+					// Itera sobre os itens da lista
+					lista_docente_online.forEach(item => {
+						let contetor_aula_online = document.getElementById('contetor_aula_online');
+						// Acessa o dia da semana e o valor correspondente de cada item
+
+						if(diaSemFeira===item.dia){
+
+							//Referencia dos elementos a se trabalhar com eles
+							//------------------------------------------------
+
+							let titulat_cadeira = contetor_aula_online.querySelector("#titular_cadeira");
+							let msg_estado_aula_oline = document.querySelector('#msg_estado_aula_oline');
+							let topico_online = document.getElementById('topico_online');
+							let lhorainicio = document.getElementById('lhorainicio');
+							let lhorafim = document.getElementById('lhorafim');
+							let latecipar_online = document.querySelector('label[name="latecipar_online"]');
+							let lparticpar_online = document.querySelector('label[name="lparticpar_online"]');
+
+							titulat_cadeira.innerHTML=dia()+":"+item.cadeira+":"+item.docente;
+							topico_online.innerHTML=item.topico;
+							lhorainicio.innerHTML=item.hora_inicio;
+							lhorafim.innerHTML=item.hora_final;
+							
+
+							// Atualiza a hora a cada segundo e exibe-a no console
+							setInterval(function() {
+							    console.log(hora());
+								if(hora()==="19:00"){
+									lparticpar_online.style.display="block";
+									latecipar_online.style.display="none";
+									msg_estado_aula_oline.innerHTML="Ja comecou";
+									msg_estado_aula_oline.style.color="green";
+								}else{
+									lparticpar_online.style.display="none";
+									latecipar_online.style.display="block";
+									msg_estado_aula_oline.innerHTML="Ainda nao comecou";
+									msg_estado_aula_oline.style.color="red";
+								}
+
+							}, 1000);
+
+						}
+					});
+
+
+				    contetor_aula_online.style.display="block";
+
+				    
+
+					
+
+
+				    let labels = contetor_aula_online.querySelectorAll("label");
+
+					labels.forEach(label => {
+					    //console.log(label.innerText); // Exibe o texto de cada label
+					    //label.innerText
+					});
+					elementoBAvo.style.display="block";
+
+					//console.log("class: "+classesPrimeiroNeto);
+
+				}else{
+					//console.log("Nao i"+targetName);
+
+					elementoBAvo.style.display="none";
+				}
+			}		    
+		});
+	}
+
+
+
+
+
+
+	//===========================================================
+	//TRABALHO EM TODO BUTTON CLICADO
+	//===========================================================
+
+	var buttons = document.querySelectorAll('button');
+	//var iframes = document.querySelectorAll('iframe');
+
+	buttons.forEach(function(button) {
+	    button.addEventListener('click', function() {
+	    	if(!(button.querySelector('a'))){
+
+
+	    		// Verificar se o botão possui o atributo 'name'
+				if (!button.hasAttribute('type')) {
+					if(button.hasAttribute('id')){
+						if(button.getAttribute('id')==="btn_mostrar_todas_cadeiras"){
+							console.log(contetor_disposicao.getAttribute('estado'));
+							if(contetor_disposicao.getAttribute('estado')==="semDia"){
+								button.innerHTML="Mostar todas as cadeirs";
+								mostrarDisposicoesDeAcordoComDia("comDia");
+							}else{
+								button.innerHTML="Ocultar todas as cadeirs";
+								mostrarDisposicoesDeAcordoComDia("semDia");
+							}
+						}
+					}
+					
+				}else{
+			    	var div_id_cadeira=button.parentNode.parentNode.getAttribute('id');
+
+					var titular_canva_leitura_aula = document.querySelector('#titular_canva_leitura_aula');
+					var iframe_aula = document.querySelector('#iframe_aula');
+					iframe_aula.style.display="block";
+					iframe_aula.setAttribute('src',"aula/"+div_id_cadeira+".html");
+
+					//Obter o filho h3 do div_id_cadeira
+					var nome_cadeira=document.getElementById(div_id_cadeira).querySelector("h3").innerText;
+					if(nome_cadeira!=null){
+						console.log(nome_cadeira)
+						titular_canva_leitura_aula.innerHTML=nome_cadeira;
+					}
+				}
+			}else{
+				if (!(urlAtual.includes("true"))) {
+					estado_disposicao_extendida=true;
+					document.getElementById('link_abre_disposicao').setAttribute('href',ficheiro_disposicao+"?"+estado_disposicao_extendida);
+					document.getElementById('link_abre_disposicao').setAttribute('target',"_blank");
+				}else{
+					estado_disposicao_extendida=false;
+					document.getElementById('link_abre_disposicao').setAttribute('href',"../../inicial.html?false");
+
+				}
+			}
+	    });
+	});
+
+
+
+
+	//===========================================================
+	//TRABALHO gerador de numeros de 6 digitos
+	//===========================================================
+
+	function gerarNumeroAleatorio() {
+	  // Gerar um número aleatório entre 10000000 e 99999999
+	  return '#'+Math.floor(Math.random(100000) * 999999)+30;
+	}
+
+	//===========================================================
+	//TRABALHO Configuracoa do dia
+	//===========================================================
+
+	function dia(){
+		
+		// Criar um objeto Date representando a data atual
+		let dataAtual = new Date();
+
+		// Obter o dia da semana (0 = Domingo, 1 = Segunda-feira, ..., 6 = Sábado)
+		let diaSemana = dataAtual.getDay();
+
+		// Array com os nomes dos dias da semana
+		let nomesDiasSemana = ['Domingo', 'Segunda-feira', 'Terça-feira', 'Quarta-feira', 'Quinta-feira', 'Sexta-feira', 'Sábado'];
+
+		// Acessar o nome do dia da semana atual
+		let diaSemanaAtual = nomesDiasSemana[diaSemana];
+
+		return diaSemanaAtual;
+
+	}
+
+	function hora(){
+		// Obtém a data e hora atual
+		let dataAtual = new Date();
+
+		// Obtém a hora atual
+		let horaAtual = dataAtual.getHours();
+		// Obtém os minutos atuais
+		let minutosAtuais = dataAtual.getMinutes();
+
+		// Formata a hora e os minutos para dois dígitos, se necessário
+		horaAtual = horaAtual < 10 ? "0" + horaAtual : horaAtual;
+		minutosAtuais = minutosAtuais < 10 ? "0" + minutosAtuais : minutosAtuais;
+
+		// Cria uma string no formato desejado (00:00)
+		let horaFormatada = horaAtual + ":" + minutosAtuais;
+
+		// Exibe a hora formatada
+		return horaFormatada;
+
+	}
+</script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
