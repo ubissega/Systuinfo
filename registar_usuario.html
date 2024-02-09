@@ -1,19 +1,128 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Firebase Authentication Example</title>
-    
-    <!-- Adicione as bibliotecas do Firebase -->    f
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link href="https://ubissega.github.io/Systuinfo/estilo/css.css" rel="stylesheet" />
-    <style type="text/css">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Teste de uso de css</title>
+
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+
+    <!-- Use a versão 8 do Firebase SDK para evitar problemas com módulos ESM 
+    <script defer src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script defer src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script defer src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+-->
+
+ 
+
+	<style type="text/css">
+		body{
+			background: url('https://i.imgur.com/ANgNh5H.png') no-repeat fixed;
+			background-size: cover;
+		}
+		.bg-login{    
+		    background: url('https://i.imgur.com/ANgNh5H.png') no-repeat fixed;
+		    background-size: cover;
+		}
 		.bg-main{    
 		    background: url('https://i.imgur.com/sqq5Rb6.png') no-repeat fixed;
 		    background-size: cover;
 		}
-    
+		.nav-body {
+		    font-family: Arial, sans-serif;
+		    margin: 0;
+		    padding: 0;
+		    display: flex;
+		    align-items: self-end;
+		    height: 15vh;
+		    color: #55e7ff;
+		}
+		.t-s{
+			text-shadow: 0 0 50px #55e7ff;
+		}
+		.bg-t-h1{
+			background: #55e7ff50;
+			border: solid 2px #55e7ff;
+		}
+		.b-b{
+		    justify-content: space-between;
+			border-bottom: solid 2px #55e7ff;
+		}
+		.login-body {
+		    font-family: Arial, sans-serif;
+		    margin: 0;
+		    padding: 0;
+		    display: flex;
+		    justify-content: center;
+		    align-items: center;
+		    height: 80vh;
+		}
+
+		.login-container {
+		    background-color: #29304050;
+		    padding: 20px;
+		    border-radius: 8px;
+		    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+		    width: 300px;
+		    max-width: 80%;
+		    color: #fff;
+		}
+		.insc-container {
+		    background-color: #29304050;
+		    padding: 20px;
+		    border-radius: 8px;
+		    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+		    width: 50%;
+		    max-width: 50%;
+		    color: #fff;
+		}
+
+		.login-container h2 {
+		    text-align: center;
+		}
+
+		.login-form {
+		    margin-top: 20px;
+		}
+
+		.form-group {
+		    margin-bottom: 15px;
+		}
+
+		.form-group label {
+		    display: block;
+		    margin-bottom: 5px;
+		}
+
+		.form-group input {
+		    width: 100%;
+		    padding: 8px;
+		    margin: 3px;
+		    box-sizing: border-box;
+		    border: 1px solid #ccc;
+		    border-radius: 4px;
+		}
+
+		.form-group button {
+		    background-color: #55e7ff;
+		    color: #293040;
+		    padding: 10px;
+		    border: none;
+		    border-radius: 4px;
+		    cursor: pointer;
+		    width: 100%;
+		}
+		.form-group span{
+			margin-left: 8px;
+		}
+
+		@media (max-width: 600px) {
+		    .login-container {
+		        width: 90%;
+		    }
+		}
+
     </style>
 </head>
 <body class="bg-main container">
@@ -29,41 +138,46 @@
 				<li><a class="dropdown-item" href="#">Manual de uso</a></li>
 				</ul>
 			</div>
+
+
 		</div>
 	</nav>
 	<div class="login-body">					
 		<div class="insc-container">		
 			<div class="form-group">
 				<form action="#" class="row needs-validation" novalidate>
-					<div class="col-md-6">						
-			    		<input type="text" name="primeiro_nome" class="form-control" placeholder="Nome" required>
+					<div espacamento="primeiro_nome" class="col-md-12">						
+			    		<input type="text" name="primeiro_nome" class="form-control" maxLength="15" placeholder="Nome" required>
 			    		<span class="invalid-feedback">Obrigatorio</span>
 					</div>
-					<div class="col-md-6">						
-			    		<input type="text" name="nome_meio" class="form-control" placeholder="Nome do meio">
-			    		<span class="valid-feedback">Nao obrigatorio</span>
+					<div espacamento="nome_meio" class="col-md-12" style="display: none;">						
+			    		<input type="text" name="nome_meio" class="form-control" maxLength="15" placeholder="Nome do meio" required>
+			    		<span class="invalid-feedback">Nao obrigatorio</span>
 					</div>
-					<div class="col-md-6">						
-			    		<input type="text" name="ultimo_nome" class="form-control" placeholder="Apelido" required>
+					<div espacamento="ultimo_nome" class="col-md-12" style="display: none;">						
+			    		<input type="text" name="ultimo_nome" class="form-control" maxLength="15" placeholder="Ultimo nome" required>
 			    		<span class="invalid-feedback">Obrigatorio</span>
 					</div>
-					<div class="col-md-6">						
-			    		<input type="number" name="telefone" class="form-control" placeholder="Telefone" required>
+					<div espacamento="sexo" class="col-md-12" style="display:none;">						
+			    		<input type="text" name="sexo" class="form-control" readonly>
+					</div>
+					<div espacamento="telefone" class="col-md-12" style="display: none;">						
+			    		<input type="number" name="telefone" class="form-control" maxLength="9" placeholder="Telefone" required>
 			    		<span class="invalid-feedback">Obrigatorio</span>
 			    	</div>
-					<div class="col-md-6">						
-			    		<input type="text" name="cidade" class="form-control" placeholder="Cidade" required>
+					<div espacamento="cidade" class="col-md-12" style="display: none;">						
+			    		<input type="text" name="cidade" class="form-control" maxLength="15" placeholder="Cidade" required>
 			    		<span class="invalid-feedback">Obrigatorio</span>
 			    	</div>
-					<div class="col-md-6">						
-			    		<input type="text" name="morada" class="form-control" placeholder="Morada (bairro)" required>
+					<div espacamento="morada" class="col-md-12" style="display: none;">						
+			    		<input type="text" name="morada" class="form-control" maxLength="15" placeholder="Morada (bairro)" required>
 			    		<span class="invalid-feedback">Obrigatorio</span>
 			    	</div>
-					<div class="col-md-6">						
+					<div espacamento="id_pic_perfil" class="col-md-12" style="display: none;">						
 			    		<input type="file" name="id_pic_perfil" class="form-control">
 			    		<span class="valid-feedback">Nao obrigatorio</span>
 			    	</div>
-					<div class="col-md-6">
+					<div espacamento="nivel" class="col-md-12" style="display:none;">
 						<select class="form-select" name="nivel" required>
 							<option value="">Selecione nivel</option>
 							<option >iniciante</option>
@@ -76,17 +190,30 @@
 					<div class="col-md-12">
 		        		<img id="imagem-preview" src="" alt="Imagem de Perfil" style="max-width: 50%; display: none; margin-left: 25%;margin-right: 25%;">
 		        	</div>
-					<div class="col-md-6">						
+					<div espacamento="email" class="col-md-12" style="display: none;">						
 			    		<input type="email" name="email" class="form-control" placeholder="Email" required>
 			    		<span class="invalid-feedback">Obrigatorio</span>
 			    	</div>
-					<div class="col-md-6">						
-			    		<input type="password" name="senha" class="form-control" placeholder="Senha" required >
+					<div espacamento="senha" class="col-md-12" style="display: none;">						
+			    		<input type="password" name="senha" class="form-control" maxLength="6" placeholder="Senha" required >
 			    		<span id="spansenha" class="invalid-feedback">Obrigatorio</span>
 			    	</div>
+					<div espacamento="pergunta_recuperacao" class="col-md-12" style="display: none;">						
+						<select class="form-select" name="pergunta_recuperacao" required>
+		            		<option active value="">Mencione a pergunta</option>
+		            		<option>Qual ee o primerio nome do seu professor/a da primeira classe?</option>
+		            		<option>Qual musica tocas quando ee o dia do natal?</option>
+		            		<option>Qual ee o apelido do seu presidente favorito?</option>
+						</select>
+			    		<span class="invalid-feedback">Obrigatorio</span>
+			    	</div>
+					<div espacamento="resposta_recuperacao" class="col-md-12" style="display: none;">						
+			    		<input type="text" name="resposta_recuperacao" class="form-control" maxLength="30" placeholder="Resposta da pergunta" required >
+			    		<span id="span_resposta_recuperacao" class="invalid-feedback">Obrigatorio</span>
+			    	</div>
 
-					<div class="col-md-12">						
-			    		<button id="submit" type="submit">Submeter</button>
+					<div espacamento="submit" class="col-md-12" style="display: none;">						
+			    		<button id="submit" type="submit" >Submeter</button>
 			    	</div>
 		    	</form>
 			</div>
@@ -151,6 +278,7 @@
 				break;
 			}
 		}
+
 		
 	    //verificarExistenciaID(numeroAleatorio);
 
@@ -160,6 +288,7 @@
 		var primeiro_nome="";
 		var nome_meio="";
 		var ultimo_nome="";
+		var sexo='';
 		var telefone="";
 		var morada="";
 		var cidade="";
@@ -169,6 +298,77 @@
 		var nivel="";
 		var email="";
 		var senha="";
+		var pergunta_recuperacao="";
+		var resposta_recuperacao="";		
+
+
+		//========================================
+		//IA de NOME
+		//=======================================
+
+		// Lista de nomes masculinos
+		var nomesMasculinos = [
+		"João", "Pedro", "Lucas", "Miguel", "Arthur",
+		"Gabriel", "Enzo", "Matheus", "Heitor", "Davi"
+		];
+
+		// Lista de nomes femininos
+		var nomesFemininos = [
+		"Maria","Ângela", "Ana", "Joana", "Luiza", "Julia",
+		"Larissa", "Camila", "Mariana", "Carla", "Isabela"
+		];
+
+
+		// Função para verificar o gênero de um nome
+		function verificarGeneroDoNome(nome_verificar) {
+			let sexo = "-";
+			let nome = "";
+
+			// Verifica se o nome está na lista de nomes femininos
+			nomesFemininos.forEach(function(nome_lista) {
+
+				if (nome_verificar.toLowerCase() === removerAcento(nome_lista.toLowerCase()).toLowerCase()) {
+					sexo = "F";
+					nome = nome_lista;
+				}else{
+					console.log(sexo);
+					// Se o gênero ainda for desconhecido, verifica se o nome está na lista de nomes masculinos
+					if (sexo === "-") {
+						nomesMasculinos.forEach(function(nome_lista) {
+							if (nome_verificar.toLowerCase() === removerAcento(nome_lista.toLowerCase()).toLowerCase()) {
+								sexo = "M";
+								nome = nome_lista;
+							}
+						});
+					}
+				}
+			});
+			
+		    // Se não encontrou o nome em nenhuma lista, retorna como desconhecido
+		    return { sexo: sexo, nome: nome};
+		}
+
+		function removerAcento(palavra) {
+		// Objeto com as letras acentuadas e suas correspondentes sem acento
+		const letrasSemAcento = {
+		'á': 'a', 'à': 'a', 'â': 'a', 'ã': 'a', 'ä': 'a', 'é': 'e', 'è': 'e', 'ê': 'e', 'ë': 'e',
+		'í': 'i', 'ì': 'i', 'î': 'i', 'ï': 'i', 'ó': 'o', 'ò': 'o', 'ô': 'o', 'õ': 'o', 'ö': 'o',
+		'ú': 'u', 'ù': 'u', 'û': 'u', 'ü': 'u', 'ç': 'c'
+		};
+
+		// Substitui cada letra acentuada pela sua correspondente sem acento
+		let palavraSemAcento = "";
+		for (let i = 0; i < palavra.length; i++) {
+		const letra = palavra.charAt(i);
+		if (letrasSemAcento.hasOwnProperty(letra)) {
+		palavraSemAcento += letrasSemAcento[letra]; // Se a letra for acentuada, substitui pela correspondente sem acento
+		} else {
+		palavraSemAcento += letra; // Se não for acentuada, mantém a letra original
+		}
+		}
+
+		return palavraSemAcento;
+		}
 
 
 
@@ -189,20 +389,20 @@
 		    primeiro_nome = document.querySelector('input[name="primeiro_nome"]').value;
 		    nome_meio = document.querySelector('input[name="nome_meio"]').value;
 		    ultimo_nome = document.querySelector('input[name="ultimo_nome"]').value;  
-		    // Verificar se um arquivo foi selecionado
-		    if (!(inputImagem.files.length > 0)) {
-				alert("Nenhum arquivo de imagem selecionado.");
-		    }
-
+		    sexo = document.querySelector('input[name="sexo"]').value;
 		    telefone = document.querySelector('input[name="telefone"]').value;
 		    morada = document.querySelector('input[name="morada"]').value;
 		    cidade = document.querySelector('input[name="cidade"]').value;
 		    nivel = document.querySelector('select[name="nivel"]').value;
 		    email = document.querySelector('input[name="email"]').value;
 		    senha = document.querySelector('input[name="senha"]').value;
-
-			insAuth();
-			
+		    pergunta_recuperacao = document.querySelector('select[name="pergunta_recuperacao"]').value;
+		    resposta_recuperacao = document.querySelector('input[name="resposta_recuperacao"]').value;
+			if (!(inputImagem.files.length > 0)) {
+				alert("Nenhum arquivo de imagem selecionado.\n submeter messageassim");
+		    }else{
+				insAuth();
+		    }			
 		}
 
 	
@@ -282,11 +482,14 @@
 						primeiro_nome: primeiro_nome,
 						nome_meio: nome_meio,
 						ultimo_nome: ultimo_nome,
+						sexo: sexo,
 						telefone: telefone,
 						morada: morada,
 						cidade: cidade,
 						source_img: downloadURL, // Armazene a URL de download da imagem, não o blob
-						nivel: nivel
+						nivel: nivel,
+						pergunta_recuperacao: pergunta_recuperacao,
+						resposta_recuperacao: resposta_recuperacao
 					};
 
 					return set(dbRef, userData);
@@ -305,6 +508,259 @@
 
 			});
 		}
+
+
+
+
+		//===================================
+		//ESCUTA DE TODOS OS INPUT
+		//====================================
+		// Seleciona todos os elementos de entrada na página
+		document.querySelectorAll('input').forEach((input) => {
+			
+			// Adiciona um ouvinte de eventos para o evento 'input'
+			input.addEventListener('input', () => {
+				let nomeattr=input.getAttribute('name');
+				
+				var nome_encontrado=verificarGeneroDoNome(input.value).nome;
+				let nome_organizado=nome_encontrado.charAt(0).toUpperCase() + nome_encontrado.slice(1);
+				//console.log(nomeattr);
+				if(nomeattr==="primeiro_nome"){
+					if(verificarGeneroDoNome(input.value).sexo==="M"){						
+						input.value=nome_organizado;
+						input.classList.remove('is-invalid');
+						input.classList.add('is-valid');
+	    				alert(input.classList.contains('is-valid'));
+						document.querySelector('div[espacamento="sexo"]').style.display="block";						
+	    				document.querySelector('div[espacamento="ultimo_nome"]').classList.add('col-md-4');
+	    				document.querySelector('div[espacamento="ultimo_nome"]').classList.remove('col-md-6');	
+	    				document.querySelector('input[name="sexo"]').value="M";
+
+
+					}else if(verificarGeneroDoNome(input.value).sexo==="F"){						
+						input.value=nome_organizado;
+						input.classList.remove('is-invalid');
+						input.classList.add('is-valid');
+						document.querySelector('div[espacamento="sexo"]').style.display="block";			
+	    				document.querySelector('div[espacamento="ultimo_nome"]').classList.add('col-md-4');
+	    				document.querySelector('div[espacamento="ultimo_nome"]').classList.remove('col-md-6');	
+	    				document.querySelector('input[name="sexo"]').value="F";
+					}else{						
+						input.classList.remove('is-valid');
+						input.classList.add('is-invalid');
+						document.querySelector('div[espacamento="sexo"]').style.display="none";		
+	    				document.querySelector('div[espacamento="ultimo_nome"]').classList.remove('col-md-4');
+	    				document.querySelector('div[espacamento="ultimo_nome"]').classList.add('col-md-6');
+					}
+
+	    			if(input.classList.contains('is-valid')){
+  						document.querySelector('div[espacamento="nome_meio"]').style.display="block";
+  						document.querySelector('div[espacamento="sexo"]').style.display="none";
+	    			}
+				}else if( nomeattr==="nome_meio" ){	
+					if(verificarGeneroDoNome(input.value).sexo==="M"){				
+						input.value=nome_organizado;
+						input.classList.remove('is-invalid');
+						input.classList.add('is-valid');
+					}else{							
+						input.classList.remove('is-valid');
+						input.classList.add('is-invalid');
+					}
+
+	    			if(input.classList.contains('is-valid')){
+  						document.querySelector('div[espacamento="ultimo_nome"]').style.display="block"; 					
+	    			}else{
+  						document.querySelector('div[espacamento="ultimo_nome"]').style.display="none"; 
+	    			}
+
+				}else if( nomeattr==="ultimo_nome" ){	
+					if(verificarGeneroDoNome(input.value).sexo==="M"){				
+						input.value=nome_organizado;
+						input.classList.remove('is-invalid');
+						input.classList.add('is-valid');
+					}else{							
+						input.classList.remove('is-valid');
+						input.classList.add('is-invalid');
+					}
+
+	    			if(input.classList.contains('is-valid')){
+  						document.querySelector('div[espacamento="sexo"]').style.display="block";
+  						document.querySelector('div[espacamento="sexo"]').classList.add('is-valid');
+  						document.querySelector('div[espacamento="telefone"]').style.display="block";
+	
+  						document.querySelector('div[espacamento="ultimo_nome"]').classList.remove('col-md-12')
+  						document.querySelector('div[espacamento="ultimo_nome"]').classList.add('col-md-9')
+
+  						document.querySelector('div[espacamento="sexo"]').classList.remove('col-md-12')
+  						document.querySelector('div[espacamento="sexo"]').classList.add('col-md-3')
+	    			}
+
+				}else if( nomeattr==="telefone" ){	
+					if(input.value.length<10){
+						input.classList.remove('is-valid');
+						input.classList.add('is-invalid');
+	  					document.getElementById('spansenha').innerHTML="A senha deve ser de 6 digitos.";
+
+					}else{
+						input.classList.remove('is-invalid');
+						input.classList.add('is-valid');
+					}
+	    			if(input.classList.contains('is-valid')){
+  						document.querySelector('div[espacamento="cidade"]').style.display="block";
+
+	    			}
+				}else if( nomeattr==="cidade" ){	
+					if(input.value.length<6){
+						input.classList.remove('is-valid');
+						input.classList.add('is-invalid');
+	  					document.getElementById('spansenha').innerHTML="A senha deve ser de 6 digitos.";
+
+					}else{
+						input.classList.remove('is-invalid');
+						input.classList.add('is-valid');
+					}
+	    			if(input.classList.contains('is-valid')){
+  						document.querySelector('div[espacamento="morada"]').style.display="block";
+
+	    			}
+				}else if( nomeattr==="morada" ){	
+					if(input.value.length<6){
+						input.classList.remove('is-valid');
+						input.classList.add('is-invalid');
+	  					document.getElementById('spansenha').innerHTML="A senha deve ser de 6 digitos.";
+
+					}else{
+						input.classList.remove('is-invalid');
+						input.classList.add('is-valid');
+					}
+	    			if(input.classList.contains('is-valid')){
+  						document.querySelector('div[espacamento="id_pic_perfil"]').style.display="block";
+  						document.querySelector('div[espacamento="nivel"]').style.display="block";
+
+  						document.querySelector('div[espacamento="primeiro_nome"]').classList.remove('col-md-12')
+  						document.querySelector('div[espacamento="primeiro_nome"]').classList.add('col-md-4')
+
+  						document.querySelector('div[espacamento="nome_meio"]').classList.remove('col-md-12')
+  						document.querySelector('div[espacamento="nome_meio"]').classList.add('col-md-4')
+
+  						document.querySelector('div[espacamento="ultimo_nome"]').classList.remove('col-md-9')
+  						document.querySelector('div[espacamento="ultimo_nome"]').classList.add('col-md-4')
+
+  						document.querySelector('div[espacamento="sexo"]').classList.remove('col-md-3')
+  						document.querySelector('div[espacamento="sexo"]').classList.add('col-md-4')
+
+  						document.querySelector('div[espacamento="telefone"]').classList.remove('col-md-12')
+  						document.querySelector('div[espacamento="telefone"]').classList.add('col-md-4')
+
+  						document.querySelector('div[espacamento="cidade"]').classList.remove('col-md-12')
+  						document.querySelector('div[espacamento="cidade"]').classList.add('col-md-4')	
+	    			}
+				}else if( nomeattr==="email" ){	
+					if(!(input.value.includes("@gmail.com") || input.value.includes("@ucm.ac.mz"))){
+						input.classList.remove('is-valid');
+						input.classList.add('is-invalid');
+	  					document.getElementById('spansenha').innerHTML="A senha deve ser de 6 digitos.";
+
+					}else{
+						input.classList.remove('is-invalid');
+						input.classList.add('is-valid');
+					}
+	    			if(input.classList.contains('is-valid')){
+  						document.querySelector('div[espacamento="senha"]').style.display="block";
+
+  						document.querySelector('div[espacamento="morada"]').classList.remove('col-md-12')
+  						document.querySelector('div[espacamento="morada"]').classList.add('col-md-4')
+
+  						document.querySelector('div[espacamento="id_pic_perfil"]').classList.remove('col-md-12')
+  						document.querySelector('div[espacamento="id_pic_perfil"]').classList.add('col-md-4')
+
+  						document.querySelector('div[espacamento="nivel"]').classList.remove('col-md-12')
+  						document.querySelector('div[espacamento="nivel"]').classList.add('col-md-4')	
+	    			}
+				}else if( nomeattr==="senha" ){	
+					if(input.value.length<6){
+						input.classList.remove('is-valid');
+						input.classList.add('is-invalid');
+	  					document.getElementById('spansenha').innerHTML="A senha deve ser de 6 digitos.";
+
+					}else{
+						input.classList.remove('is-invalid');
+						input.classList.add('is-valid');
+					}
+	    			if(input.classList.contains('is-valid')){
+  						document.querySelector('div[espacamento="pergunta_recuperacao"]').style.display="block";
+
+  						document.querySelector('div[espacamento="email"]').classList.remove('col-md-12')
+  						document.querySelector('div[espacamento="email"]').classList.add('col-md-6')
+
+  						document.querySelector('div[espacamento="senha"]').classList.remove('col-md-12')
+  						document.querySelector('div[espacamento="senha"]').classList.add('col-md-6')
+	    			}
+				}else if(nomeattr==="resposta_recuperacao"){
+					if(input.value.length<=2){
+						input.classList.remove('is-valid');
+						input.classList.add('is-invalid');
+
+	  					document.getElementById('span_resposta_recuperacao').innerHTML="A resposta deve ter no minimo 3 letras e no maximo 30 letras";  					
+	
+
+					}else{	
+						input.classList.remove('is-invalid');
+						input.classList.add('is-valid');
+	  				}
+	    			if(input.classList.contains('is-valid')){
+  						document.querySelector('div[espacamento="submit"]').style.display="block";
+	    			}
+				}
+			});
+		});
+
+
+
+		// Seleciona todos os elementos de entrada na página
+		document.querySelectorAll('select').forEach((select) => {
+			
+			// Adiciona um ouvinte de eventos para o evento 'input'
+			select.addEventListener('input', () => {
+				var nomeattr=select.getAttribute('name');
+
+				if( nomeattr==="nivel" ){	
+					if(select.value===""){
+						select.classList.remove('is-valid');
+						select.classList.add('is-invalid');
+	  					document.getElementById('spansenha').innerHTML="A senha deve ser de 6 digitos.";
+
+					}else{
+						select.classList.remove('is-invalid');
+						select.classList.add('is-valid');
+					}
+	    			if(select.classList.contains('is-valid')){
+  						document.querySelector('div[espacamento="email"]').style.display="block";
+	    			}
+				}else if( nomeattr==="pergunta_recuperacao" ){	
+					if(select.value===""){
+						select.classList.remove('is-valid');
+						select.classList.add('is-invalid');
+	  					document.getElementById('spansenha').innerHTML="A senha deve ser de 6 digitos.";
+
+					}else{
+						select.classList.remove('is-invalid');
+						select.classList.add('is-valid');
+					}
+	    			if(select.classList.contains('is-valid')){
+  						document.querySelector('div[espacamento="resposta_recuperacao"]').style.display="block";
+	    			}
+				}
+
+			});
+		});
+
+		//==================================================================================================
+		//ESCUTA DE TODOS OS SPAN ou invalid-feedback com valid-feedback
+		//===================================================================================================
+		// Seleciona todos os elementos de entrada na página
+
+
 
 		// Função para criar um usuário com e-mail e senha e associar dados adicionais
 
