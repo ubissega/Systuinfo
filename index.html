@@ -8,13 +8,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link href="https://ubissega.github.io/Systuinfo/estilo/css.css" rel="stylesheet" />
     
-    <!-- Use a versão 8 do Firebase SDK para evitar problemas com módulos ESM -->
-    <script defer src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
-    <script defer src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
-    <script defer src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
     
-    <!-- Adicione aqui as configurações do seu projeto Firebase -->
-    <script defer src="js/firebase.js"></script>
 
     <style>
         .bg-login{
@@ -43,47 +37,202 @@
 	</nav>
 	<div class="login-body">
 	    <div class="login-container">
+	    	<div style="background: #ffffff90;">
+	    		<span id="msg_login" class="text-center" style="color: #55e7ff;">Apenas insira credencial coerente, automaticamente quando a senha estiver certo entra</span>
+	    	</div>
 	        <div class="login-form">
-	            <div class="form-group">
-	                <label >Email:</label>
-	                <input type="email" id="email" required>
-	            </div>
-	            <div class="form-group">
-	                <label >Senha:</label>
-	                <input type="password" id="senha" required>
-	            </div>
-	            <div class="form-group">
-	                <button onclick="fazerLogin()">Entrar</button>
+	        	<div id="campos_credencial">	        		
+		            <div class="form-group">
+		                <label >Email:</label>
+		                <input type="email" id="email" required>
+		            </div>
+		            <div class="form-group">
+		                <label >Senha:</label>
+		                <input type="password" id="senha" maxlength="6">
+		            </div>
+	        	</div>
+	            <div id="campos_parametros_verificar_existencia_usuario" class="form-group" style="display: none;">	
+
+		            <div class="form-group">
+		                <label >ID do Usuario:</label>
+		                <input type="text" id="idR" maxlength="10">
+		            </div>
+		            <div class="form-group">
+		                <label >Primeiro nome:</label>
+		                <input type="text" id="primeiro_nomeR" maxlength="20">
+		            </div>  
+		            <div class="form-group">
+		                <label >Ultimo nome:</label>
+		                <input type="text" id="ultimo_nomeR" maxlength="20">
+		            </div>     
+		            <div class="form-group">
+		                <label >Telefone:</label>
+		                <input type="text" id="telefoneR" maxlength="9">
+		            </div>         		        		
+		            <div class="form-group">
+		            	<select class="form-select" id="perguntaR">
+		            		<option active value="0">Mencione a pergunta</option>
+		            		<option>Qual ee o primerio nome do seu professor/a da primeira classe?</option>
+		            		<option>Qual musica tocas quando ee o dia do natal?</option>
+		            		<option>Qual ee o apelido do seu presidente favorito?</option>
+		            	</select>
+		            </div>
+			        <div class="form-group">
+			            <label >Resposta:</label>
+		            	<div class="d-flex">		            	
+			                <input class=" w-75" type="text" id="respostaR" maxlength="30">
+			            	<button id="btn_verificar_resposta_pergunta" class="btn w-25" style="background: #55e7ff;">Verificar</button>
+			            </div>
+		            </div>	
+	                <button id="btn_para_redefinir_senha" class="btn" style="background: #55e7ff; display: none;">Redefinir senha</button>
 	            </div>
 	        </div>
-	        <div class="form-group">
-	                <button><a href="registar_usuario.html">Criar conta</a></button>
-	            </div>
 	    </div>
-  	<footer class="footer text-uppercase">
+	</div>
+  	<footer class="footer text-uppercase text-light text-center">
   		Todos os direitos reservados copyriht systuinfo . 2024
   	</footer>
 
-    <script>
-        // Função para fazer login com e-mail e senha
-        function fazerLogin() {
-            const email = document.getElementById('email').value;
-            const senha = document.getElementById('senha').value;
 
-            // Tentativa de login
-            firebase.auth().signInWithEmailAndPassword(email, senha)
-                .then(userCredential => {
-                    // Usuário autenticado com sucesso
-                    const user = userCredential.user;
-                    console.log("Usuário autenticado com UID:", user.uid);
+ 	<script type="module">
 
-                    // Exemplo: redirecionar para outra página após o login
-                    window.location.href = "inicial.html";
-                })
-                .catch(error => {
-                    console.error("Erro ao fazer login:", error.message);
-                });
+		//====================================
+		//INICIALIZANDO A CONEXAO COM FIREBASE
+		//====================================
+
+		//Importacao do que precisamos trabalhar
+		//--------------------------------------
+		import {initializeApp} from "https://www.gstatic.com/firebasejs/9.1.0/firebase-app.js";
+		import {getAuth, signInWithEmailAndPassword, sendPasswordResetEmail} from "https://www.gstatic.com/firebasejs/9.1.0/firebase-auth.js";
+		import {getDatabase,get, ref,set,child} from "https://www.gstatic.com/firebasejs/9.1.0/firebase-database.js";
+
+	    var firebaseConfig = {
+	          apiKey: "AIzaSyDohCeHRGxRiO4sfN9pOFHVUqe01cuzUEg",
+	          authDomain: "systuinfo.firebaseapp.com",
+	          databaseURL: "https://systuinfo-default-rtdb.firebaseio.com",
+	          projectId: "systuinfo",
+	          storageBucket: "systuinfo.appspot.com",
+	          messagingSenderId: "604412345972",
+	          appId: "1:604412345972:web:96338d9c4f5853d1765b21"
+	     };
+	     
+	     // Inicialize o Firebase
+	    var app=initializeApp(firebaseConfig);
+	    var app=initializeApp(firebaseConfig);
+
+
+        var email = document.getElementById('email');
+        var senha = document.getElementById('senha');
+        var msg_login = document.getElementById('msg_login');
+        var campos_credencial = document.getElementById('campos_credencial');
+        var tentativas_sig_in=0;
+
+        //Reposicao da senha reerencia  necessaria
+        var campos_parametros_verificar_existencia_usuario = document.getElementById('campos_parametros_verificar_existencia_usuario');
+
+        var id = document.getElementById('idR');
+        var primeiro_nome = document.getElementById('primeiro_nomeR');
+        var ultimo_nome = document.getElementById('ultimo_nomeR');
+        var telefone = document.getElementById('telefoneR');
+        var pergunta = document.getElementById('perguntaR');
+        var resposta = document.getElementById('respostaR');
+
+        
+     
+		function fazerLogin(email, senha) {
+			return signInWithEmailAndPassword(getAuth(app),email, senha).then(userCredential => {
+				const user = userCredential.user;
+        		msg_login.style.display="none";
+        		tentativas_sig_in;
+            	return user.uid;	
+			}).catch(error => {
+        		msg_login.style.display="block";
+				if(error.message.includes("invalid-email")){
+        			msg_login.innerHTML="Email nao definido coretamente";
+        			msg_login.style.color="red";
+
+				}else if(error.message.includes("invalid-login-credentials")){
+					tentativas_sig_in ++;
+        			msg_login.innerHTML="Credecial nao correto<br>Tentativa falha "+tentativas_sig_in;
+        			msg_login.style.color="red";
+				}else if(error.message.includes("Access to this account has been temporarily disabled due to many failed login attempts")){
+        			msg_login.innerHTML="O acesso a esta conta foi temporariamente desativado devido a muitas tentativas de login malsucedidas. Você pode restaurá-lo imediatamente redefinindo sua senha ou tentar novamente mais tarde";
+        			msg_login.style.color="red";
+        			campos_credencial.style.display="none";
+        			campos_parametros_verificar_existencia_usuario.style.display="block";
+        			document.querySelector('.login-container').style.width="500px";
+				}
+				throw error;
+			});
+		}
+
+		function verificarParaRedefinicaoDaSenha(email,id,nome,apelido,tell,pergunta,resposta){
+
+			// Construa a referência para o nó de usuários
+			const usuariosRef = ref(getDatabase(app), 'systuinfo/usuario');
+
+			// Execute a consulta para encontrar o usuário
+			get(child(usuariosRef, id)).then((snapshot) => {
+				if (snapshot.exists()) {
+					// O usuário existe, verifique se os dados correspondem
+					const usuario = snapshot.val();
+					if (usuario.primeiro_nome.toLowerCase() === nome.toLowerCase() &&
+						usuario.ultimo_nome.toLowerCase() === apelido.toLowerCase() && 
+						usuario.telefone === tell &&
+						usuario.pergunta.toLowerCase() === pergunta.toLowerCase() && 
+						usuario.resposta.toLowerCase() === resposta.toLowerCase()) {
+						console.log('Usuário encontrado:', snapshot.key);// torna o id do systuinfo/usuario
+						document.getElementById('btn_para_redefinir_senha').style.display="block";
+					} else {						
+						msg_login.innerHTML="Verifique melhor todos campos menos "+id+".";
+					}
+				} else {					
+					msg_login.innerHTML="O "+id+" nao existe.";
+				}
+			}).catch((error) => {
+				console.error('Erro ao buscar usuário:', error);
+				if(error.message.includes("path argument was an invalid path")){
+				}
+			});
+		}
+		
+		function redefinicaoSenha(email){
+			sendPasswordResetEmail(getAuth(app), email).then(() => {
+				// Email de redefinição de senha enviado
+				msg_login.innerHTML="Email de redefinição de senha enviado para: "+email+"<br><br>Abra o Gmail, e finalize o processo";
+        		msg_login.style.color="green";
+        		campos_parametros_verificar_existencia_usuario.style.display="none";
+        		campos_senha_reposicao.style.display="none";
+        		campos_credencial.style.display="block";
+				return email;
+			}).catch((error) => {
+				const errorCode = error.code;
+				const errorMessage = error.message;
+				// Tratar erros, se houver
+				console.error(errorMessage);
+				throw error;
+			});
+		}
+        senha.oninput=function() {
+        	// body...
+
+        	if(senha.value.length>5){
+        		// Chame a função fazerLogin e atribua seu resultado a value_sig_in
+				fazerLogin(email.value, senha.value);
+        	}
         }
+
+        document.getElementById('btn_verificar_resposta_pergunta').onclick=function(){
+        	if(id.value.length>9){
+				verificarParaRedefinicaoDaSenha(email.value,id.value,primeiro_nome.value,ultimo_nome.value,telefone.value,pergunta.value,resposta.value);
+        	}else{
+					msg_login.innerHTML="ID nao preenchido conforme<br>O ID deve ser de 10 digitos";        		
+        	}
+        }
+        document.getElementById('btn_para_redefinir_senha').onclick=function(){
+			redefinicaoSenha(email.value);
+        }
+
     </script>
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
