@@ -5,91 +5,155 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">    
     <title>Firebase Authentication Example</title>
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link href="https://ubissega.github.io/Systuinfo/estilo/css.css" rel="stylesheet" />
-    
-    
+ 	
+
+
+    <!-- Bootstrap core CSS -->
+<link href="css/bootstrap.min.css" rel="stylesheet">
 
     <style>
-        .bg-login{
-            background: url('https://i.imgur.com/ANgNh5H.png') no-repeat fixed;
-            background-size: cover;
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
         }
+          nav,footer{
+          background: #00990090;
+          color: white;
+        }
+      }
+      body {
+        /* Define um gradiente linear como plano de fundo */
+   		background: url(./img/bg/login.png) no-repeat fixed;
+        background-size: cover;
+        
+      }
+      nav,footer{
+          background: #00990090;
+        color: white;
+      }
+      .titular_page{
+        border: solid 2px #55e7ff;
+        background: #55e7ff90;
+        color: white; !important;
+      }
+      .bg-padrao{
+        background: #55e7ff;
+      }
+      .btn{
+        background: #55e7ff90;
+
+      }
+      .btn:hover{
+        background: #55e7ff;
+
+      }
     </style>
+
     
-</head>
-<body class="bg-login container">
-	<nav class=" nav-body">
-		<div class="d-flex justify-content-between b-b w-100">
-			<h1 class="bg-t-h1 text-uppercase t-s">systuinfo</h1>
-		   	<div class="dropdown">
-		   		<button class="btn btn-secondary active" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">Iniciar sessao</button>
-				<ul class="dropdown-menu dropdown-menu-dark w-100" aria-labelledby="dropdownMenuButton2">
+    <!-- Custom styles for this template -->
+    <link href="css/offcanvas.css" rel="stylesheet">
+  </head>
+  <body class="">
+	 <nav class=" navbar bg-body-tertiary fixed-top" >
+	  <div class="container">
+	    <h1 class="text-uppercase navbar-brand">systuinfo</h1>
+	    <button class="text-uppercase btn text-white border" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+	       Menu
+	    </button>
+	    <div class="offcanvas offcanvas-end bg-padrao" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+	      <div class="offcanvas-header">
+	        <h5 class="" id="offcanvasNavbarLabel">Opcoes do menu</h5>
+	        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+	      </div>
+	      <div class="offcanvas-body">
+	        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+
 				<li><a class="dropdown-item" href="index.html">Pagina inicial</a></li>
-				<li><a class="dropdown-item" href="registar_usuario.html">Inscrição</a></li>
+				<li><a class="dropdown-item" href="cadastro.html">Inscrição</a></li>
 				<li><hr class="dropdown-divider"></li>
-				<li><a class="dropdown-item" href="#">Manual de uso</a></li>
-				</ul>
-			</div>
-
-
-		</div>
-	</nav>
-	<div class="login-body">
-	    <div class="login-container col-12 col-md-12 col-sm-12 col-xl-9 col-xxl-6 p-3">
-	    	<div style="background: #ffffff90;">
-	    		<span id="msg_login" class="text-center" style="color: #55e7ff;">Apenas insira credencial coerente, automaticamente quando a senha estiver certo entra</span>
-	    	</div>
-	        <div class="login-form">
-	        	<div id="campos_credencial">	        		
-		            <div class="form-group">
-		                <label >Email:</label>
-		                <input type="email" id="email" required>
-		            </div>
-		            <div class="form-group">
-		                <label >Senha:</label>
-		                <input type="password" id="senha" maxlength="6">
-		            </div>
-	        	</div>
-	            <div id="campos_parametros_verificar_existencia_usuario" class="form-group" style="display: none;">	
-
-		            <div class="form-group">
-		                <label >ID do Usuario:</label>
-		                <input type="text" id="idR" maxlength="10">
-		            </div>
-		            <div class="form-group">
-		                <label >Primeiro nome:</label>
-		                <input type="text" id="primeiro_nomeR" maxlength="20">
-		            </div>  
-		            <div class="form-group">
-		                <label >Ultimo nome:</label>
-		                <input type="text" id="ultimo_nomeR" maxlength="20">
-		            </div>     
-		            <div class="form-group">
-		                <label >Telefone:</label>
-		                <input type="text" id="telefoneR" maxlength="9">
-		            </div>         		        		
-		            <div class="form-group">
-		            	<select class="form-select" id="perguntaR">
-		            		<option active value="0">Mencione a pergunta</option>
-		            		<option>Qual ee o primerio nome do seu professor/a da primeira classe?</option>
-		            		<option>Qual musica tocas quando ee o dia do natal?</option>
-		            		<option>Qual ee o apelido do seu presidente favorito?</option>
-		            	</select>
-		            </div>
-			        <div class="form-group">
-			            <label >Resposta:</label>
-		            	<div class="d-flex">		            	
-			                <input class=" w-75" type="text" id="respostaR" maxlength="30">
-			            	<button id="btn_verificar_resposta_pergunta" class="btn w-25" style="background: #55e7ff;">Verificar</button>
-			            </div>
-		            </div>	
-	                <button id="btn_para_redefinir_senha" class="btn" style="background: #55e7ff; display: none;">Redefinir senha</button>
-	            </div>
-	        </div>
+				<li><a class="dropdown-item" href="#">Manual de uso</a></li>        
 	    </div>
-	</div>
-  	<footer class="footer text-uppercase text-light text-center">
+	  </div>
+	</nav>
+
+	<main class="container mb-5">
+		<div class="row titular_page">	      
+	      <div class=" d-flex align-items-center p-3 m-2 text-uppercase rounded shadow-sm">
+	        <img class="me-3" src="./img/perfil/user.png" alt="" width="48" height="48">
+	        <div class="lh-1">
+	          <h1 class="h6 mb-0 lh-1">Iniciar sessao</h1>
+	        </div>
+	      </div>
+	    </div>
+	    <div class="row"> 
+			<p class="col-md-12 bg-padrao">
+			Por favor, lembre-se de cuidar das suas credenciais de forma segura e confidencial.
+			</p>   
+			<p class="col"></p>
+			<div class="col-md-4 bg-body shadow-sm">
+        		<div class="m-2">
+					<h6 class="border-bottom pb-2 mb-0">Credencias</h6>
+					<p id="msg_login"></p>
+					<div class="d-flex text-muted pb-1">   
+					  	<p class=" small w-100">
+						    <strong class="d-block text-gray-dark">Email</strong>          
+						    <input type="email" class="form-control" id="email" required>
+					  	</p>
+				    </div>
+				    <div class="d-flex text-muted pb-1">   
+						<p class=" small w-100">
+							<strong class="d-block text-gray-dark">Senha</strong>          
+							<input type="password" class="form-control" id="senha" maxlength="6">
+						</p>
+					</div>
+				</div>
+			</div> 
+			<p class="col"></p>
+		</div>
+		<div class="row">
+			<p class="col"></p>
+	      	<div class="col-md-5 m-2 p-3 bg-body rounded shadow-sm" id="campos_parametros_verificar_existencia_usuario" class="form-group" style="display: none;">
+		        <h6 class="border-bottom pb-2 mb-0">Reposicao da senha</h6>
+				
+			    <div class="d-flex text-muted pb-1">   
+					<p class=" small w-100">
+						<strong class="d-block text-gray-dark">Telefone</strong>          
+						<input type="text" class="form-control" id="telefoneR" >
+					</p>
+				</div>
+			    <div class="d-flex text-muted pb-1">   
+					<p class=" small w-100">
+						<strong class="d-block text-gray-dark">Pergunta</strong>          
+						<span id="pergunta" class="form-control"></span>
+					</p>
+				</div>
+			    <div class="d-flex text-muted pb-1">   
+					<p class=" small w-100">
+						<strong class="d-block text-gray-dark">Resposta</strong>       
+						<input type="text" class="form-control" id="respostaR" > 
+					</p>
+				</div>
+				<button class="btn border w-100" id="btn_para_redefinir_senha">Prosseguir</button>
+
+			    <div class="text-muted pb-1" id="msg_para_redifinir" style="display:none;">   
+					<p class=" small w-100">
+						<p><strong class="d-block text-gray-dark">Acao para finalizar</strong> </p>      
+						<p class="my-1 form-control">Visite o seu gmail, la recebeste o link para a reposicao da senha.</p>
+					</p>
+				</div>
+		    </div>
+			<p class="col"></p>
+		</div>
+	</main>
+  	<footer class="footer fixed-bottom text-uppercase text-light text-center">
   		Todos os direitos reservados copyriht systuinfo . 2024
   	</footer>
 
@@ -103,7 +167,7 @@
 		//Importacao do que precisamos trabalhar
 		//--------------------------------------
 		import {initializeApp} from "https://www.gstatic.com/firebasejs/9.1.0/firebase-app.js";
-		import {getAuth, signInWithEmailAndPassword, sendPasswordResetEmail} from "https://www.gstatic.com/firebasejs/9.1.0/firebase-auth.js";
+		import {getAuth, signInWithEmailAndPassword, sendPasswordResetEmail, signOut} from "https://www.gstatic.com/firebasejs/9.1.0/firebase-auth.js";
 		import {getDatabase,get, ref,set,child} from "https://www.gstatic.com/firebasejs/9.1.0/firebase-database.js";
 
 	    var firebaseConfig = {
@@ -116,9 +180,21 @@
 	          appId: "1:604412345972:web:96338d9c4f5853d1765b21"
 	     };
 	     
+
 	     // Inicialize o Firebase
 	    var app=initializeApp(firebaseConfig);
-	    var app=initializeApp(firebaseConfig);
+
+
+
+	    //Antes de mais nada, terminar sessao
+	    //-----------------------------------
+	    getAuth().signOut().then(function() {
+			// Sign-out bem-sucedido.
+		}).catch(function(error) {
+		  // Ocorreu um erro durante o sign-out.
+		  console.error("Erro ao desconectar o usuário:", error);
+		});
+
 
 
         var email = document.getElementById('email');
@@ -142,12 +218,11 @@
 		function fazerLogin(email, senha) {
 			return signInWithEmailAndPassword(getAuth(app),email, senha).then(userCredential => {
 				const user = userCredential.user;
-				document.querySelector('.login-body').style.background="green";
         		msg_login.style.display="none";
         		tentativas_sig_in;
-            	return user.uid;	
+				localStorage.setItem('usuario', user.email);
+				window.location.href = 'inicial.html';
 			}).catch(error => {
-				document.querySelector('.login-body').style.background="darkred";
         		msg_login.style.display="block";
 				if(error.message.includes("invalid-email")){
         			msg_login.innerHTML="Email nao definido coretamente";
@@ -203,9 +278,9 @@
 				// Email de redefinição de senha enviado
 				msg_login.innerHTML="Email de redefinição de senha enviado para: "+email+"<br><br>Abra o Gmail, e finalize o processo";
         		msg_login.style.color="green";
-        		campos_parametros_verificar_existencia_usuario.style.display="none";
-        		campos_senha_reposicao.style.display="none";
-        		campos_credencial.style.display="block";
+        		//campos_parametros_verificar_existencia_usuario.style.display="none";
+				this.style.display="none";
+				document.getElementById('msg_para_redifinir').style.display="block";
 				return email;
 			}).catch((error) => {
 				const errorCode = error.code;
@@ -223,20 +298,14 @@
 				fazerLogin(email.value, senha.value);
         	}
         }
-
-        document.getElementById('btn_verificar_resposta_pergunta').onclick=function(){
-        	if(id.value.length>9){
-				verificarParaRedefinicaoDaSenha(email.value,id.value,primeiro_nome.value,ultimo_nome.value,telefone.value,pergunta.value,resposta.value);
-        	}else{
-					msg_login.innerHTML="ID nao preenchido conforme<br>O ID deve ser de 10 digitos";        		
-        	}
-        }
         document.getElementById('btn_para_redefinir_senha').onclick=function(){
 			redefinicaoSenha(email.value);
         }
 
     </script>
-    
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+
+    <script src="js/offcanvas.js"></script>
     </body>
 </html>
