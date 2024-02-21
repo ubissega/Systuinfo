@@ -29,26 +29,32 @@
           font-size: 3.5rem;
         }
           nav,footer{
-          background: linear-gradient(to right, green 80%,green 80%,green 80%);
+          background: #00990090;
           color: white;
         }
       }
       body {
-        /* Define um gradiente linear como plano de fundo */
-       background: linear-gradient(to right, #55e7ff 0%, #55e7ff 20%, green 80%, #55e7ff 100%);
+        /* Define um gradiente linear como plano de fundo *//* Define um gradiente linear como plano de fundo */
+        background: url(./img/bg/main.png) no-repeat fixed;
+        background-size: cover;
         
       }
       nav,footer{
-        background: linear-gradient(to right, green 80%,green 80%,green 80%);
+          background: #00990090;
         color: white;
       }
       .titular_page{
         border: solid 2px #55e7ff;
         background: #55e7ff90;
-        color: green !important;
+        color: #55e7ff;
       }
       .bg-padrao{
         background: #55e7ff;
+      }
+
+      .btn{
+        background: #55e7ff90;
+        color: white;
       }
       .btn:hover{
         background: #55e7ff;
@@ -88,141 +94,153 @@
     <div class="row titular_page">
       
       <div class=" d-flex align-items-center p-3 m-2 text-uppercase rounded shadow-sm">
-        <img class="me-3" src="../assets/brand/bootstrap-logo-white.svg" alt="" width="48" height="38">
+        <img class="me-3" src="./img/perfil/user.png" alt="" width="48" height="48">
         <div class="lh-1">
           <h1 class="h6 mb-0 lh-1">Registo do estudante</h1>
         </div>
       </div>
     </div>
     <div class="row"> 
-      <p class="col ">
+      <p class="col bg-padrao mt-2 ">
         Aviso: Por favor, preencha todos os campos obrigatórios antes de prosseguir. Campos obrigatórios são essenciais para garantir que tenhamos todas as informações necessárias para processar sua solicitação com precisão e eficiência.
       </p>   
-      <div class="col-md-5 m-2 p-3 bg-body rounded shadow-sm">
-        <h6 class="border-bottom pb-2 mb-0">Dados pessoais</h6>
-        <div class="d-flex text-muted pb-1">   
-          <p class=" small w-100">
-            <strong class="d-block text-gray-dark">Primeiro nome</strong>          
-            <input type="text" name="primeiro_nome" class="form-control" maxLength="20"  required>
-                <span id="spanpnome" class="invalid-feedback">Obrigatorio</span>
-          </p>
-        </div>
-         <div class="d-flex text-muted pb-1">   
-          <p class=" small w-100">
-            <strong class="d-block text-gray-dark">Nome do meio</strong>          
-            <input type="text" name="nome_meio" class="form-control" maxLength="20"  required>
-                <span id="spannomemeio" class="invalid-feedback">Obrigatorio</span>
-          </p>
-        </div>
-         <div class="d-flex text-muted pb-1">   
-          <p class=" small w-100">
-            <strong class="d-block text-gray-dark">Ultimo nome</strong>          
-            <input type="text" name="ultimo_nome" class="form-control" maxLength="20"  required>
-                <span id="spanunome" class="invalid-feedback">Obrigatorio</span>
-          </p>
-        </div>
-         <div class="d-flex text-muted pb-1">   
-          <p class=" small w-100">
-            <strong class="d-block text-gray-dark">Sexo</strong>          
-            <input type="text" name="sexo" class="form-control" maxLength="10"  required>
-                <span id="spansexo" class="invalid-feedback">Obrigatorio</span>
-          </p>
-        </div>
-         <div class="d-flex text-muted pb-1">   
-          <p class=" small w-100">
-            <strong class="d-block text-gray-dark">Data de nascimento</strong>          
-            <input type="date" name="data_nascimento" class="form-control" required min="1900-01-01">
+      <div class="col-md-5 mt-2 p-3 bg-body  shadow-sm">
+        <div class="m-2">
+          <h6 class="border-bottom pb-2 mb-0">Dados pessoais</h6>
+          <div class="d-flex text-muted pb-1">   
+            <p class=" small w-100">
+              <strong class="d-block text-gray-dark">Primeiro nome</strong>          
+              <input type="text" name="primeiro_nome" class="form-control" maxLength="20"  required>
+                  <span id="spanpnome" class="invalid-feedback">Obrigatorio</span>
+            </p>
+          </div>
+           <div class="d-flex text-muted pb-1">   
+            <p class=" small w-100">
+              <strong class="d-block text-gray-dark">Nome do meio</strong>          
+              <input type="text" name="nome_meio" class="form-control" maxLength="20"  required>
+                  <span id="spannomemeio" class="invalid-feedback">Obrigatorio</span>
+            </p>
+          </div>
+           <div class="d-flex text-muted pb-1">   
+            <p class=" small w-100">
+              <strong class="d-block text-gray-dark">Ultimo nome</strong>          
+              <input type="text" name="ultimo_nome" class="form-control" maxLength="20"  required>
+                  <span id="spanunome" class="invalid-feedback">Obrigatorio</span>
+            </p>
+          </div>
+           <div class="d-flex text-muted pb-1">   
+            <p class=" small w-100">
+              <strong class="d-block text-gray-dark">Sexo</strong>          
+              <input type="text" name="sexo" class="form-control" maxLength="10"  required>
+                  <span id="spansexo" class="invalid-feedback">Obrigatorio</span>
+            </p>
+          </div>
+           <div class="d-flex text-muted pb-1">   
+            <p class=" small w-100">
+              <strong class="d-block text-gray-dark">Data de nascimento</strong>          
+              <input type="date" name="data_nascimento" class="form-control" required min="1900-01-01">
 
-                <span id="spandatanacimento" class="invalid-feedback">Obrigatorio</span>
-          </p>
+                  <span id="spandatanacimento" class="invalid-feedback">Obrigatorio</span>
+            </p>
+          </div>
         </div>
       </div>
 
-      <div class="col-md-5 m-2 p-3 bg-body rounded shadow-sm">
-        <h6 class="border-bottom pb-2 mb-0">Dados de localizacao</h6>
-        <div class="d-flex text-muted pb-1">   
-          <p class=" small w-100">
-            <strong class="d-block text-gray-dark">Distrito</strong>          
-            <input type="text" name="distrito" class="form-control" maxLength="15"  required>
-                <span id="spandistrito" class="invalid-feedback">Obrigatorio</span>
-          </p>
-        </div>
-         <div class="d-flex text-muted pb-1">   
-          <p class=" small w-100">
-            <strong class="d-block text-gray-dark">Morada</strong>          
-            <input type="text" name="morada" class="form-control" maxLength="15"  required>
-                <span id="spanmorada" class="invalid-feedback">Obrigatorio</span>
-          </p>
-        </div>
-         <div class="d-flex text-muted pb-1">   
-          <p class=" small w-100">
-            <strong class="d-block text-gray-dark">Telefone</strong>          
-            <input type="text" name="telefone" class="form-control" maxLength="9" required>
-                <span id="spantelefone" class="invalid-feedback">Obrigatorio</span>
-          </p>
-        </div>
-        <div class="row">
+      <div class="col-md-5 mt-2 p-3 bg-body shadow-sm">
+        <div class="m-2">
           
-           <div class=" col-md-8 d-flex text-muted pb-1">   
+          <h6 class="border-bottom pb-2 mb-0">Dados de localizacao</h6>
+          <div class="d-flex text-muted pb-1">   
             <p class=" small w-100">
-              <strong class="d-block text-gray-dark">Foto do perfil</strong> 
-              <label class="mb-2">A foto a ser escolhida deve ser quase quadrada ou quadrada. Caso nao obter uma imagem suave pode adicionar mais tarde.</label>
-              <input type="file" name="pic_perfil" class="form-control" >
+              <strong class="d-block text-gray-dark">Distrito</strong>          
+              <input type="text" name="distrito" class="form-control" maxLength="15"  required>
+                  <span id="spandistrito" class="invalid-feedback">Obrigatorio</span>
             </p>
           </div>
-           <div class=" col-md-4 d-flex text-muted pb-1">   
+           <div class="d-flex text-muted pb-1">   
             <p class=" small w-100">
-              <strong class="d-block text-gray-dark">Mostra</strong>          
-              <img id="imagem-preview" src="perfil/j.jpg" alt="Imagem de Perfil" class="w-100">
+              <strong class="d-block text-gray-dark">Morada</strong>          
+              <input type="text" name="morada" class="form-control" maxLength="15"  required>
+                  <span id="spanmorada" class="invalid-feedback">Obrigatorio</span>
             </p>
           </div>
+           <div class="d-flex text-muted pb-1">   
+            <p class=" small w-100">
+              <strong class="d-block text-gray-dark">Telefone</strong>          
+              <input type="text" name="telefone" class="form-control" maxLength="9" required>
+                  <span id="spantelefone" class="invalid-feedback">Obrigatorio</span>
+            </p>
+          </div>
+          <div class="row">
+            
+             <div class=" col-md-8 d-flex text-muted pb-1">   
+              <p class=" small w-100">
+                <strong class="d-block text-gray-dark">Foto do perfil</strong> 
+                <label class="mb-2">A foto a ser escolhida deve ser quase quadrada ou quadrada. Caso nao obter uma imagem suave pode adicionar mais tarde.</label>
+                <input type="file" name="pic_perfil" class="form-control" >
+              </p>
+            </div>
+             <div class=" col-md-4 d-flex text-muted pb-1">   
+              <p class=" small w-100">
+                <strong class="d-block text-gray-dark">Mostra</strong>          
+                <img id="imagem-preview" src="./img/perfil/user.png" alt="Imagem de Perfil" class="w-100">
+              </p>
+            </div>
+          </div>
+
         </div>
       </div>
     </div>
     <div class="row">
-      <p class="col">
+      <p class="col bg-padrao mt-2">
         Por favor, lembre-se de cuidar das suas credenciais de forma segura e confidencial. 
       </p>
-      <div class="col-md-5 m-2 p-3 bg-body rounded shadow-sm">
-        <h6 class="border-bottom pb-2 mb-0">Credencial</h6>
-         <div class="d-flex text-muted pb-1">   
-          <p class=" small w-100">
-            <strong class="d-block text-gray-dark">Email</strong>          
-            <input type="text" name="email" class="form-control" required>
-                <span id="spanemail" class="invalid-feedback">Obrigatorio</span>
-          </p>
-        </div>
-         <div class="d-flex text-muted pb-1">   
-          <p class=" small w-100">
-            <strong class="d-block text-gray-dark">Senha</strong>          
-            <input type="text" name="senha" class="form-control" maxLength="6"  required>
-                <span id="spansenha" class="invalid-feedback">Obrigatorio</span>
-          </p>
-        </div>
-      </div>
-      <div class="col-md-5 m-2 p-3 bg-body rounded shadow-sm">
-        <h6 class="border-bottom pb-2 mb-0">Recomendamos para a redifinicao da senha</h6>
-         <div class="d-flex text-muted pb-1">   
-          <p class=" small w-100">
-            <strong class="d-block text-gray-dark">Pergunta</strong>   
-            <select class="form-select" name="pergunta_recuperacao" required>
-                      <option active value="">Mencione a pergunta</option>
-                      <option>Qual ee o primerio nome do seu professor/a da primeira classe?</option>
-                      <option>Qual musica tocas quando ee o dia do natal?</option>
-                      <option>Qual ee o apelido do seu presidente favorito?</option>
-              </select>      
-                <span id="span_pergunta_rec" class="invalid-feedback">Obrigatorio</span>
-          </p>
-        </div>
-         <div class="d-flex text-muted pb-1">   
-          <p class=" small w-100">
-            <strong class="d-block text-gray-dark">Resposta</strong>          
-            <input type="text" name="resposta_recuperacao" class="form-control" maxLength="30"  required>
-                <span id="span_resposta_rec" class="invalid-feedback">Obrigatorio</span>
-          </p>
+      <div class="col-md-5 mt-2 p-3 bg-body  shadow-sm">
+        <div class="m-2">
+            
+          <h6 class="border-bottom pb-2 mb-0">Credencial</h6>
+           <div class="d-flex text-muted pb-1">   
+            <p class=" small w-100">
+              <strong class="d-block text-gray-dark">Email</strong>          
+              <input type="text" name="email" class="form-control" required>
+                  <span id="spanemail" class="invalid-feedback">Obrigatorio</span>
+            </p>
+          </div>
+           <div class="d-flex text-muted pb-1">   
+            <p class=" small w-100">
+              <strong class="d-block text-gray-dark">Senha</strong>          
+              <input type="text" name="senha" class="form-control" maxLength="6"  required>
+                  <span id="spansenha" class="invalid-feedback">Obrigatorio</span>
+            </p>
+          </div>
         </div>
       </div>
-      <button type="submit" class="col-md-12 btn border" >Submeter</button>
+      <div class="col-md-5 mt-2 p-3 bg-body  shadow-sm">
+        <div class="m-2">
+          
+          <h6 class="border-bottom pb-2 mb-0">Recomendamos para a redifinicao da senha</h6>
+           <div class="d-flex text-muted pb-1">   
+            <p class=" small w-100">
+              <strong class="d-block text-gray-dark">Pergunta</strong>   
+              <select class="form-select" name="pergunta_recuperacao" required>
+                        <option active value="">Mencione a pergunta</option>
+                        <option>Qual ee o primerio nome do seu professor/a da primeira classe?</option>
+                        <option>Qual musica tocas quando ee o dia do natal?</option>
+                        <option>Qual ee o apelido do seu presidente favorito?</option>
+                </select>      
+                  <span id="span_pergunta_rec" class="invalid-feedback">Obrigatorio</span>
+            </p>
+          </div>
+           <div class="d-flex text-muted pb-1">   
+            <p class=" small w-100">
+              <strong class="d-block text-gray-dark">Resposta</strong>          
+              <input type="text" name="resposta_recuperacao" class="form-control" maxLength="30"  required>
+                  <span id="span_resposta_rec" class="invalid-feedback">Obrigatorio</span>
+            </p>
+          </div>
+        </div>
+      </div>
+      <button type="submit" class="col-md-12 btn border mt-2" >Submeter</button>
      
     </div>
   </form>
