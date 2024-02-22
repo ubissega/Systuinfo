@@ -331,6 +331,13 @@
 
 
 	<script type="module">
+				document.addEventListener('backbutton', function(event) {
+		  // Impede o comportamento padrão do botão "back"
+		  event.preventDefault();
+		  alert("Nao pode");
+		  
+		  // Aqui você pode adicionar qualquer ação adicional que deseja executar quando o botão "back" é pressionado
+		});
 
 		//====================================
 		//INICIALIZANDO A CONEXAO COM FIREBASE
