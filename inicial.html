@@ -5,254 +5,205 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Inicial systuinfo</title>
 
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- Bootstrap core CSS -->
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/headers.css" rel="stylesheet">
 
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
 
-    <!-- Use a versão 8 do Firebase SDK para evitar problemas com módulos ESM 
-    <script defer src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
-    <script defer src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
-    <script defer src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
--->
+      @media (max-width: 600px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+          nav,footer{
+          background: #00990090;
+          color: white;
+        }
+        .email_btn_menu{
+        	display: none;
+        }
+      }
+      body {
+        /* Define um gradiente linear como plano de fundo *//* Define um gradiente linear como plano de fundo */
+        background: url(./img/bg/main.png) no-repeat fixed;
+        background-size: cover;
+        
+      }
+      nav,footer{
+          background: #00990090;
+        color: white;
+      }
+      .titular_page{
+        border: solid 2px #55e7ff;
+        background: #55e7ff90;
+        color: #55e7ff;
+      }
+      .bg-padrao{
+        background: #55e7ff;
+      }
 
- 
+      .btn{
+        background: #55e7ff90;
+        color: white;
+      }
+      .btn:hover{
+        background: #55e7ff;
 
-	<style type="text/css">
-		body{
-			background: url('https://i.imgur.com/ANgNh5H.png') no-repeat fixed;
-			background-size: cover;
-		}
-		.bg-login{    
-		    background: url('https://i.imgur.com/ANgNh5H.png') no-repeat fixed;
-		    background-size: cover;
-		}
-		.bg-main{    
-		    background: url('https://i.imgur.com/sqq5Rb6.png') no-repeat fixed;
-		    background-size: cover;
-		}
-		.nav-body {
-		    font-family: Arial, sans-serif;
-		    margin: 0;
-		    padding: 0;
-		    display: flex;
-		    align-items: self-end;
-		    height: 15vh;
-		    color: #55e7ff;
-		}
-		.card{
-			color: #293040;
-		}
-		.nav-main-body {
-		    font-family: Arial, sans-serif;
-		    margin: 0;
-		    padding: 0;
-		    display: flex;
-		    align-items: self-end;
-		    height: 10vh;
-		    color: #55e7ff;
-		}
-		.t-s{
-			text-shadow: 0 0 50px #55e7ff;
-		}
-		.bg-t-h1{
-			background: #55e7ff50;
-			border: solid 2px #55e7ff;
-		}
-		.b-b{
-		    justify-content: space-between;
-			border-bottom: solid 2px #55e7ff;
-		}
-		.login-body {
-		    font-family: Arial, sans-serif;
-		    margin: 0;
-		    padding: 0;
-		    display: flex;
-		    justify-content: center;
-		    align-items: center;
-		    height: 80vh;
-		}
-		.inicio-body {
-		    font-family: Arial, sans-serif;
-		    margin: 0;
-		    padding: 0;
-		    display: flex;
-		    justify-content: center;
-		    align-items: center;
-		    height: 90vh;
-		}
-
-		.login-container {
-		    background-color: #29304050;
-		    padding: 20px;
-		    border-radius: 8px;
-		    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-		    width: 300px;
-		    max-width: 80%;
-		    color: #fff;
-		}
-		.inicio-container {
-			background: transparent;
-		    border-radius: 8px;
-		    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-		    width: 100%;
-		}
-		.insc-container {
-		    background-color: #29304050;
-		    padding: 20px;
-		    border-radius: 8px;
-		    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-		    width: 50%;
-		    max-width: 50%;
-		    color: #fff;
-		}
-
-		.login-container h2 {
-		    text-align: center;
-		}
-
-		.login-form {
-		    margin-top: 20px;
-		}
-
-		.form-group {
-		    margin-bottom: 15px;
-		}
-
-		.form-group label {
-		    display: block;
-		    margin-bottom: 5px;
-		}
-
-		.form-group input {
-		    width: 100%;
-		    padding: 8px;
-		    margin: 3px;
-		    box-sizing: border-box;
-		    border: 1px solid #ccc;
-		    border-radius: 4px;
-		}
-
-		.form-group button {
-		    background-color: #55e7ff;
-		    color: #293040;
-		    padding: 10px;
-		    border: none;
-		    border-radius: 4px;
-		    cursor: pointer;
-		    width: 100%;
-		}
-		.bg-btn{
-			background-color: #55e7ff;
-		    color: #293040;
-
-		}
-		.form-group span{
-			margin-left: 8px;
-		}
-
-		@media (max-width: 600px) {
-		    .login-container {
-		        width: 90%;
-		    }
-		}
-
+      }
     </style>
-</head>
-<body class="bg-main container">
-	<div class="d-fixed-top sticky-top">
-			
-		<nav class="position-relative nav-main-body ">
-			<div class=" bg-btn d-flex justify-content-between position-absolute my-1 top-100 start-0 btn w-100 bg-">
-				<a class=" btn btn-success" data-bs-toggle="offcanvas" href="#conteudos" role="button" aria-controls="offcanvasExample">Conteudo</a>
-				<div>
-					<a class=" btn-success">Conteudo</a>
-					<a class=" btn-success">Conteudo</a>
-					<a class=" btn-success">Conteudo</a>					
-				</div>
-			</div>
-			<div class="d-flex justify-content-between b-b w-100 ">
-				<h1 class="bg-t-h1 text-uppercase t-s">systuinfo</h1>
-			   	<div class="dropdown">
-			   		<button class="btn btn-secondary" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">Nome completo</button>
-					<ul class="dropdown-menu dropdown-menu-dark w-100" aria-labelledby="dropdownMenuButton2">
-					<li><a class="dropdown-item" href="index.html">Suporte</a></li>
-					<li><a class="dropdown-item" href="index.html">Minha informação</a></li>
-					<li><a class="dropdown-item" href="index.html">Terminar sessao</a></li>
-					<li><hr class="dropdown-divider"></li>
-					<li><a class="dropdown-item" href="#">Manual de uso</a></li>
-					</ul>
-				</div>
-			</div>
-		</nav>
-		<div class="position-relative">			
-			<div class="offcanvas offcanvas-start" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="conteudos" aria-labelledby="offcanvasScrollingLabel">
-				<button type="button" class="btn-close text-reset position-absolute top-0 start-0 btn" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-				<div class="offcanvas-header justify-content-around d-grid">
-					<img src="https://i.imgur.com/Nv1Darv.png" alt="Logo"/>		
-					<h5 class="offcanvas-title" id="offcanvasExampleLabel">Sistema de informação do estudante</h5>
-					<hr>
-					<h4 class="offcanvas-title" id="offcanvasExampleLabel">Conteudo</h4>
-					
+
+    
+    <!-- Custom styles for this template -->
+    <link href="css/offcanvas.css" rel="stylesheet">
+  </head>
+  <body class="bg-light">
+  	<div class="container">
+  		
+		  <header class=" row border-bottom">
+		      <h1 class="col  text-uppercase navbar-brand  ">systuinfo</h1>
+		      <div class=" col-auto d-flex align-items-center">
+		        <div class="flex-shrink-0 dropdown">
+		          
+		          <button class="text-uppercase btn text-white border" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+							<span class="email_btn_menu" name="email" ></span>
+							<img src="./img/perfil/user.png" width="32" height="32" class="rounded-circle" alt="Minha Imagem Circular"/>
+						</button>
+		        </div>
+		      </div>
+		  </header>
+		  <li><a class=" btn btn-success" data-bs-toggle="offcanvas" href="#conteudos" role="button" aria-controls="offcanvasExample">Conteudo</a></li>
+  	
+
+  	
+
+
+	  <offcancas>
+
+			<div class="offcanvas offcanvas-end bg-padrao" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+				<div class="offcanvas-header">
+					<h5 class="" id="offcanvasNavbarLabel">Opcoes do menu</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
 				</div>
 				<div class="offcanvas-body">
-					<div>
-					Curos: Tecnologias de informação
+					<ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+						<li><a class="dropdown-item" href="index.html">Pagina inicial</a></li>
+						<li><a class="dropdown-item" href="index.html">Iniciar sessao</a></li>
+						<li><hr class="dropdown-divider"></li>
+						<li><a class="dropdown-item" href="#">Manual de uso</a></li>  
+					</ul>        
+				</div>
+			</div>
+	  </offcancas>
+
+		<main class="container mb-5 sticky-top">
+				
+			
+			<div class="position-relative">			
+				<div class="offcanvas offcanvas-start" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="conteudos" aria-labelledby="offcanvasScrollingLabel">
+					<button type="button" class="m-2 btn-close text-reset position-absolute top-0 end-0 btn" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+					<div class="offcanvas-header justify-content-around d-grid my-3">
+						<img src="https://i.imgur.com/Nv1Darv.png" alt="Logo"/>	
+						<h5 class="text-uppercase text-center my-1" id="offcanvasExampleLabel">Sistema de informação do estudante</h5>
+						<hr>
+						<h4 class="offcanvas-title" id="offcanvasExampleLabel">Conteudo</h4>
+						
 					</div>
-					<div class="dropdown mt-3">
-						<button class="btn btn-secondary dropdown-toggle w-100" type="button" id="int" data-bs-toggle="dropdown">
-						Começãndo
-						</button>
-						<ul class="dropdown-menu w-100" aria-labelledby="int">
-							<li><button class="dropdown-item" type="button" data-bs-toggle="offcanvas" data-bs-target="#canva_introdution" aria-controls="offcanvasRight">Introdução</button></li>
-						</ul>
-					</div>
-					<div class="dropdown mt-3">
-						<button class="btn btn-secondary dropdown-toggle w-100" type="button" id="pa" data-bs-toggle="dropdown">
-						Primeiro ano
-						</button>
-						<ul class="dropdown-menu w-100" aria-labelledby="pa">
-							<li><button class="dropdown-item" data-bs-dismiss="offcanvas" ficheiro="paps">Primeiro semestre</button></li>							
-							<li><button class="dropdown-item" data-bs-dismiss="offcanvas" ficheiro="pass">Segundo semestre</button></li>
-						</ul>
-					</div>
-					<div class="dropdown mt-3">
-						<button class="btn btn-secondary dropdown-toggle w-100" type="button" id="sa" data-bs-toggle="dropdown">
-						Segundo ano
-						</button>
-						<ul class="dropdown-menu w-100" aria-labelledby="sa">
-							<li><button class="dropdown-item" data-bs-dismiss="offcanvas" ficheiro="saps">Primeiro semestre</button></li>							
-							<li><button class="dropdown-item" data-bs-dismiss="offcanvas" ficheiro="sass">Segundo semestre</button></li>
-						</ul>
-					</div>
-					<div class="dropdown mt-3">
-						<button class="btn btn-secondary dropdown-toggle w-100" type="button" id="ta" data-bs-toggle="dropdown">
-						Terceiro ano
-						</button>
-						<ul class="dropdown-menu w-100" aria-labelledby="ta">
-							<li><button class="dropdown-item" data-bs-dismiss="offcanvas" ficheiro="taps">Primeiro semestre</button></li>							
-							<li><button class="dropdown-item" data-bs-dismiss="offcanvas" ficheiro="tass">Segundo semestre</button></li>
-						</ul>
-					</div>
-					<div class="dropdown mt-3">
-						<button class="btn btn-secondary dropdown-toggle w-100" type="button" id="qa" data-bs-toggle="dropdown">
-						Quarto ano
-						</button>
-						<ul class="dropdown-menu w-100" aria-labelledby="qa">
-							<li><button class="dropdown-item" data-bs-dismiss="offcanvas" ficheiro="qaps">Primeiro semestre</button></li>							
-							<li><button class="dropdown-item" data-bs-dismiss="offcanvas" ficheiro="qass">Segundo semestre</button></li>
-						</ul>
+					<div class="offcanvas-body">
+						<div>
+						Curos: Tecnologias de informação
+						</div>
+						<div class="dropdown mt-3">
+							<button class="btn btn-secondary dropdown-toggle w-100" type="button" id="int" data-bs-toggle="dropdown">
+							Começãndo
+							</button>
+							<ul class="dropdown-menu w-100" aria-labelledby="int">
+								<li><button class="dropdown-item" type="button" data-bs-toggle="offcanvas" data-bs-target="#canva_introdution" aria-controls="offcanvasRight">Introdução</button></li>
+							</ul>
+						</div>
+						<div class="dropdown mt-3">
+							<button class="btn btn-secondary dropdown-toggle w-100" type="button" id="pa" data-bs-toggle="dropdown">
+							Primeiro ano
+							</button>
+							<ul class="dropdown-menu w-100" aria-labelledby="pa">
+								<li><button class="dropdown-item" data-bs-dismiss="offcanvas" ficheiro="paps">Primeiro semestre</button></li>							
+								<li><button class="dropdown-item" data-bs-dismiss="offcanvas" ficheiro="pass">Segundo semestre</button></li>
+							</ul>
+						</div>
+						<div class="dropdown mt-3">
+							<button class="btn btn-secondary dropdown-toggle w-100" type="button" id="sa" data-bs-toggle="dropdown">
+							Segundo ano
+							</button>
+							<ul class="dropdown-menu w-100" aria-labelledby="sa">
+								<li><button class="dropdown-item" data-bs-dismiss="offcanvas" ficheiro="saps">Primeiro semestre</button></li>							
+								<li><button class="dropdown-item" data-bs-dismiss="offcanvas" ficheiro="sass">Segundo semestre</button></li>
+							</ul>
+						</div>
+						<div class="dropdown mt-3">
+							<button class="btn btn-secondary dropdown-toggle w-100" type="button" id="ta" data-bs-toggle="dropdown">
+							Terceiro ano
+							</button>
+							<ul class="dropdown-menu w-100" aria-labelledby="ta">
+								<li><button class="dropdown-item" data-bs-dismiss="offcanvas" ficheiro="taps">Primeiro semestre</button></li>							
+								<li><button class="dropdown-item" data-bs-dismiss="offcanvas" ficheiro="tass">Segundo semestre</button></li>
+							</ul>
+						</div>
+						<div class="dropdown mt-3">
+							<button class="btn btn-secondary dropdown-toggle w-100" type="button" id="qa" data-bs-toggle="dropdown">
+							Quarto ano
+							</button>
+							<ul class="dropdown-menu w-100" aria-labelledby="qa">
+								<li><button class="dropdown-item" data-bs-dismiss="offcanvas" ficheiro="qaps">Primeiro semestre</button></li>							
+								<li><button class="dropdown-item" data-bs-dismiss="offcanvas" ficheiro="qass">Segundo semestre</button></li>
+							</ul>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-	</div>
-	<div class="inicio-body">					
-		<div class="inicio-container">	
-			<iframe id="iframe_disposicao_semestral" width="100%" height="500px" frameborder="0" style="display: none;"></iframe>
+		<div class="inicio-body">					
+			<div class="inicio-container">	
+				<iframe id="iframe_disposicao_semestral" width="100%" height="500px" frameborder="0" style="display: none;"></iframe>
+			</div>
 		</div>
-	</div>
-  	<footer class="footer text-uppercase">
+	</main>
+  	<footer class="footer fixed-bottom text-uppercase">
   		Todos os direitos reservados copyriht systuinfo . 2024
   	</footer>
+  </div>
+
+
+  <modal>
+
+  		<!-- Modal -->
+		<div class="modal fade" id="infoUsuario" tabindex="-1"  data-bs-backdrop="static" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		  <div class="modal-dialog">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <h1 class="modal-title fs-5" id="exampleModalLabel">Informacoes do usuario</h1>
+		        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+		      </div>
+		      <div class="modal-body">
+		        <div>
+		        	<p class="m-1"><span class="">Nome completo</span><span name="nome"></span></p>
+		        	<p class="m-1"><span class="">Email</span><span name="email"></span></p>
+		        </div>
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+		        <button type="button" class="btn btn-primary">Save changes</button>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+
+  	</modal>
 
 
 
@@ -415,21 +366,32 @@
 
 		// Verifique se há um usuário autenticado
 		//---------------------------------------
-		const user = auth.currentUser;
 
-		if (user) {
-			// O usuário está autenticado, você pode acessar suas informações
-			const uid = user.uid;
-			const email = user.email;
-			const phoneNumber = user.phoneNumber;
+		const email = localStorage.getItem('usuario');
+		
+		auth.onAuthStateChanged(function(user) {
+		  if (user) {
+		    // Usuário está autenticado
+		    console.log("Usuário está autenticado");
+			if (user.email === email) {
 
-			console.log('UID do usuário:', uid);
-			console.log('Endereço de e-mail do usuário:', email);
-			console.log('Número de telefone do usuário:', phoneNumber);
-		} else {
-			// Não há nenhum usuário autenticado no momento
-			//window.location.href = 'index.html';
-		}
+				document.querySelectorAll('span[name="email"]').forEach(span => {
+				  // Define o conteúdo interno (innerHTML) de cada elemento <span> como o valor do e-mail
+				  span.innerHTML = user.email;
+				});
+
+
+			} else {
+
+				window.location.href = 'index.html';
+			}
+		    // Você pode permitir o acesso às páginas protegidas ou executar outras ações aqui
+		  } else {
+		    // Usuário não está autenticado
+			window.location.href = 'index.html';
+		  }
+		});
+		
 
 
 
@@ -501,11 +463,10 @@
 			
 	</script>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
-</body>
-</html>
-    <!-- Adicione um botão para fazer login -->
-    <button onclick="fazerLogin()">Fazer Login</button>
+    <script src="js/bootstrap.bundle.min.js"></script>
+
+    <script src="js/offcanvas.js"></script>
+
 </body>
 </html>
