@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Inicial systuinfo</title>
+	<title>Inicial - systuinfo</title>
 
     <!-- Bootstrap core CSS -->
 <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -17,6 +17,9 @@
         -moz-user-select: none;
         user-select: none;
       }
+      @media (max-width: 600px) {
+
+      }
 
       @media (max-width: 600px) {
         .bd-placeholder-img-lg {
@@ -29,7 +32,38 @@
         .email_btn_menu{
         	display: none;
         }
+        .btn{
+        	border: none;
+        	color: blue;
+        }
+        .offcanvas{
+        	width: 75%;
+        }
+
       }
+      @media (max-width: 481px) {
+        #offcanvas_menu_email{
+        	font-size: 16px;
+        }
+      }
+      @media (max-width: 455px) {
+        #offcanvas_menu_email{
+        	font-size: 15px;
+        }
+      }
+      @media (max-width: 420px) {
+        #offcanvas_menu_email{
+        	font-size: 13px;
+        }
+      }
+      @media (max-width: 380px) {
+        #offcanvas_menu_email{
+        	font-size: 12px;
+        }
+      }
+
+
+      
       body {
         /* Define um gradiente linear como plano de fundo *//* Define um gradiente linear como plano de fundo */
         background: url(./img/bg/main.png) no-repeat fixed;
@@ -37,7 +71,7 @@
         
       }
       nav,footer{
-          background: #00990090;
+        background: #00990090;
         color: white;
       }
       .titular_page{
@@ -51,11 +85,18 @@
 
       .btn{
         background: #55e7ff90;
-        color: white;
+        color: blue;
       }
       .btn:hover{
         background: #55e7ff;
 
+      }
+      .btn-close{
+      	background: #990000;
+      }
+      .object_disposicao_semestral{
+      	width: 100%; /* Largura do objeto */
+        height: 100%;
       }
     </style>
 
@@ -63,281 +104,305 @@
     <!-- Custom styles for this template -->
     <link href="css/offcanvas.css" rel="stylesheet">
   </head>
-  <body class="bg-light">
-  	<div class="container">
-  		
-		  <header class=" row border-bottom">
-		      <h1 class="col  text-uppercase navbar-brand  ">systuinfo</h1>
-		      <div class=" col-auto d-flex align-items-center">
-		        <div class="flex-shrink-0 dropdown">
-		          
-		          <button class="text-uppercase btn text-white border" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
-							<span class="email_btn_menu" name="email" ></span>
-							<img src="./img/perfil/user.png" width="32" height="32" class="rounded-circle" alt="Minha Imagem Circular"/>
-						</button>
-		        </div>
-		      </div>
-		  </header>
-		  <li><a class=" btn btn-success" data-bs-toggle="offcanvas" href="#conteudos" role="button" aria-controls="offcanvasExample">Conteudo</a></li>
-  	
+  <body>
+  		<header>  			
+			  <nav class=" border-bottom fixed-top">
+			  	<div class="row m-3">
+			  		
+			      <h1 class="col  text-uppercase navbar-brand " style="font-size: 30px;">systuinfo</h1>
+			      <div class=" col-auto d-flex align-items-center">
+			        <div class="flex-shrink-0 dropdown">
+			          
+			          <button class="text-uppercase btn text-white border" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+								<span class="email_btn_menu" name="email" ></span>
+								<img name="img-perfil" src="./img/perfil/user.png" width="32" height="32" class="rounded-circle" alt="Minha Imagem Circular"/>
+								</button>
+				      </div>
+			  		</div>
+			      <div class="col-md-12">
+			      	
+			  				<a class=" btn btn-success" id="btn-inicial" >Inicial</a>
+			  				<a class=" btn btn-success" data-bs-toggle="offcanvas" href="#conteudos" role="button" aria-controls="offcanvasExample">Conteudo</a>
+			      </div>
+			    </div>
+			  </nav>
+  		</header>
 
-  	
+			<main class="p-1 mt-5">
 
 
-	  <offcancas>
+			</main>
+			<footer class="footer fixed-bottom text-uppercase">
+				Todos os direitos reservados copyriht systuinfo . 2024
+			</footer>
 
-			<div class="offcanvas offcanvas-end bg-padrao" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+
+  	<offcanvas>
+
+
+  		<div class="offcanvas offcanvas-top w-100 h-100" data-bs-scroll="false" tabindex="-1" id="apresentacao" aria-labelledby="offcanvasNavbarLabel">
 				<div class="offcanvas-header">
-					<h5 class="" id="offcanvasNavbarLabel">Opcoes do menu</h5>
-					<button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+					<h5 class="" id="offcanvas_menu_email"><span name="email"></span></h5>
+					<button type="button" class="btn-close text-white" data-bs-dismiss="offcanvas" aria-label="Close">X</button>
+				</div>
+				<div class="offcanvas-body">					
+						<object class="object_disposicao_semestral" id="object_disposicao_semestral" style="display: none; "></object>       
+				</div>
+			</div>
+
+			<div class="offcanvas offcanvas-end" data-bs-scroll="false" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+				<div class="offcanvas-header">
+					<h5 class="" id="offcanvas_menu_email"><span name="email"></span></h5>
+					<button type="button" class="btn-close text-white" data-bs-dismiss="offcanvas" aria-label="Close">X</button>
 				</div>
 				<div class="offcanvas-body">
 					<ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-						<li><a class="dropdown-item" href="index.html">Pagina inicial</a></li>
-						<li><a class="dropdown-item" href="index.html">Iniciar sessao</a></li>
+						<li type="button" class="dropdown-item" data-bs-toggle="modal" href="#infoUsuario" role="button" aria-controls="offcanvasExample">Info do estudante</li>						
 						<li><hr class="dropdown-divider"></li>
+						<li><a class="dropdown-item" href="index.html">Terminar sessao</a></li>
 						<li><a class="dropdown-item" href="#">Manual de uso</a></li>  
 					</ul>        
 				</div>
 			</div>
-	  </offcancas>
 
-		<main class="container mb-5 sticky-top">
-				
-			
-			<div class="position-relative">			
-				<div class="offcanvas offcanvas-start" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="conteudos" aria-labelledby="offcanvasScrollingLabel">
-					<button type="button" class="m-2 btn-close text-reset position-absolute top-0 end-0 btn" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+
+
+			<div class="position-relative" style="color: blue;">			
+				<div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="conteudos" aria-labelledby="offcanvasScrollingLabel">
+					<button type="button" class="m-2 btn-close text-reset position-absolute top-0 end-0 btn" data-bs-dismiss="offcanvas" aria-label="Close">X</button>
 					<div class="offcanvas-header justify-content-around d-grid my-3">
-						<img src="https://i.imgur.com/Nv1Darv.png" alt="Logo"/>	
+						<img src="https://i.imgur.com/Nv1Darv.png" alt="Logo" width="100%" />	
 						<h5 class="text-uppercase text-center my-1" id="offcanvasExampleLabel">Sistema de informação do estudante</h5>
 						<hr>
-						<h4 class="offcanvas-title" id="offcanvasExampleLabel">Conteudo</h4>
+						<p class="text-uppercase text-center">Tecnologias de informação</p>
 						
 					</div>
 					<div class="offcanvas-body">
-						<div>
-						Curos: Tecnologias de informação
-						</div>
-						<div class="dropdown mt-3">
-							<button class="btn btn-secondary dropdown-toggle w-100" type="button" id="int" data-bs-toggle="dropdown">
+						<div class="dropdown mt-1">
+							<button class="btn dropdown-toggle w-100" type="button" id="int" data-bs-toggle="dropdown">
 							Começãndo
 							</button>
 							<ul class="dropdown-menu w-100" aria-labelledby="int">
 								<li><button class="dropdown-item" type="button" data-bs-toggle="offcanvas" data-bs-target="#canva_introdution" aria-controls="offcanvasRight">Introdução</button></li>
 							</ul>
 						</div>
-						<div class="dropdown mt-3">
-							<button class="btn btn-secondary dropdown-toggle w-100" type="button" id="pa" data-bs-toggle="dropdown">
+						<div class="dropdown mt-1">
+							<button class="btn dropdown-toggle w-100" type="button" id="pa" data-bs-toggle="dropdown">
 							Primeiro ano
 							</button>
 							<ul class="dropdown-menu w-100" aria-labelledby="pa">
-								<li><button class="dropdown-item" data-bs-dismiss="offcanvas" ficheiro="paps">Primeiro semestre</button></li>							
-								<li><button class="dropdown-item" data-bs-dismiss="offcanvas" ficheiro="pass">Segundo semestre</button></li>
+								<li><button class="dropdown-item" data-bs-toggle="offcanvas" data-bs-target="#apresentacao" data-bs-dismiss="offcanvas" ficheiro="paps">Primeiro semestre</button></li>							
+								<li><button class="dropdown-item" data-bs-toggle="offcanvas" data-bs-target="#apresentacao" data-bs-dismiss="offcanvas" ficheiro="pass">Segundo semestre</button></li>
 							</ul>
 						</div>
-						<div class="dropdown mt-3">
-							<button class="btn btn-secondary dropdown-toggle w-100" type="button" id="sa" data-bs-toggle="dropdown">
+						<div class="dropdown mt-1">
+							<button class="btn dropdown-toggle w-100" type="button" id="sa" data-bs-toggle="dropdown">
 							Segundo ano
 							</button>
 							<ul class="dropdown-menu w-100" aria-labelledby="sa">
-								<li><button class="dropdown-item" data-bs-dismiss="offcanvas" ficheiro="saps">Primeiro semestre</button></li>							
-								<li><button class="dropdown-item" data-bs-dismiss="offcanvas" ficheiro="sass">Segundo semestre</button></li>
+								<li><button class="dropdown-item" data-bs-toggle="offcanvas" data-bs-target="#apresentacao" data-bs-dismiss="offcanvas" ficheiro="saps">Primeiro semestre</button></li>							
+								<li><button class="dropdown-item" data-bs-toggle="offcanvas" data-bs-target="#apresentacao" data-bs-dismiss="offcanvas" ficheiro="sass">Segundo semestre</button></li>
 							</ul>
 						</div>
-						<div class="dropdown mt-3">
-							<button class="btn btn-secondary dropdown-toggle w-100" type="button" id="ta" data-bs-toggle="dropdown">
+						<div class="dropdown mt-1">
+							<button class="btn dropdown-toggle w-100" type="button" id="ta" data-bs-toggle="dropdown">
 							Terceiro ano
 							</button>
 							<ul class="dropdown-menu w-100" aria-labelledby="ta">
-								<li><button class="dropdown-item" data-bs-dismiss="offcanvas" ficheiro="taps">Primeiro semestre</button></li>							
-								<li><button class="dropdown-item" data-bs-dismiss="offcanvas" ficheiro="tass">Segundo semestre</button></li>
+								<li><button class="dropdown-item" data-bs-toggle="offcanvas" data-bs-target="#apresentacao" data-bs-dismiss="offcanvas" ficheiro="taps">Primeiro semestre</button></li>							
+								<li><button class="dropdown-item" data-bs-toggle="offcanvas" data-bs-target="#apresentacao" data-bs-dismiss="offcanvas" ficheiro="tass">Segundo semestre</button></li>
 							</ul>
 						</div>
-						<div class="dropdown mt-3">
-							<button class="btn btn-secondary dropdown-toggle w-100" type="button" id="qa" data-bs-toggle="dropdown">
+						<div class="dropdown mt-1">
+							<button class="btn dropdown-toggle w-100" type="button" id="qa" data-bs-toggle="dropdown">
 							Quarto ano
 							</button>
 							<ul class="dropdown-menu w-100" aria-labelledby="qa">
-								<li><button class="dropdown-item" data-bs-dismiss="offcanvas" ficheiro="qaps">Primeiro semestre</button></li>							
-								<li><button class="dropdown-item" data-bs-dismiss="offcanvas" ficheiro="qass">Segundo semestre</button></li>
+								<li><button class="dropdown-item" data-bs-toggle="offcanvas" data-bs-target="#apresentacao" data-bs-dismiss="offcanvas" ficheiro="qaps">Primeiro semestre</button></li>							
+								<li><button class="dropdown-item" data-bs-toggle="offcanvas" data-bs-target="#apresentacao" data-bs-dismiss="offcanvas" ficheiro="qass">Segundo semestre</button></li>
 							</ul>
 						</div>
 					</div>
 				</div>
 			</div>
-		</div>
-		<div class="inicio-body">					
-			<div class="inicio-container">	
-				<iframe id="iframe_disposicao_semestral" width="100%" height="500px" frameborder="0" style="display: none;"></iframe>
+
+
+
+
+			<div class="offcanvas offcanvas-end w-75" data-bs-scroll="false" tabindex="-1" id="canva_introdution" aria-labelledby="offcanvass">
+				<div class="offcanvas-header">
+					<h5 id="offcanvasRightLabel">Introdução</h5>
+					<button type="button" class="btn-close text-white text-reset" data-bs-dismiss="offcanvas" aria-label="Close">X</button>
+				</div>
+				<div class="offcanvas-body">
+					<p>
+						O curso de Tecnologias de Informação oferecido pelo ICT (Instituto de Ciência e Tecnologia) é um programa abrangente que visa capacitar os estudantes com habilidades essenciais para enfrentar os desafios e demandas do mundo digital em constante evolução. Sob a coordenação do experiente Muhamad, mestre em programação, o curso é ministrado por uma equipe de docentes altamente qualificados e especializados em diversas áreas-chave da tecnologia da informação.
+
+						Um dos docentes é Watson, um analista de rede de computadores corporativo com vasta experiência no setor. Sua expertise proporciona aos alunos uma compreensão profunda dos princípios de rede, segurança cibernética e infraestrutura de TI, essenciais para o funcionamento eficiente e seguro dos sistemas de informação nas organizações.
+
+						Outro membro do corpo docente é Vasco, um especialista em sistemas de base de dados. Com seu conhecimento aprofundado em gerenciamento de dados e sistemas de banco de dados, Vasco oferece insights valiosos sobre a modelagem, implementação e manutenção de sistemas de informações fundamentais para empresas de todos os setores.
+
+						O projeto desenvolvido por um grupo de estudantes dedicados em 2023 sob a orientação desses instrutores exemplifica o comprometimento e a determinação dos alunos em adquirir habilidades práticas e aplicáveis no campo da tecnologia da informação. Numa época em que os desafios eram significativos, esses alunos demonstraram resiliência e perseverança para superar obstáculos e alcançar o sucesso.
+
+						O curso de Tecnologias de Informação do ICT, com sua equipe docente capacitada e engajada, continua a oferecer uma educação de alta qualidade que prepara os alunos para se destacarem em um mercado de trabalho cada vez mais competitivo e dinâmico.
+					</p>
+				</div>
 			</div>
-		</div>
-	</main>
-  	<footer class="footer fixed-bottom text-uppercase">
-  		Todos os direitos reservados copyriht systuinfo . 2024
-  	</footer>
-  </div>
 
 
-  <modal>
+			<div class="offcanvas offcanvas-end" data-bs-scroll="false" tabindex="-1" id="canva_pa" aria-labelledby="offcanvass">
+				<div class="offcanvas-header d-grid sticky-top d-fixed-top">
+					<h5 id="offcanvasRightLabel " class="text-uppercase">Bem vindo ao primeiro semestre do primeiro ano</h5>
+					<hr>
+					<button type="button" class="btn-close text-white text-reset" data-bs-dismiss="offcanvas" aria-label="Close">X</button>
 
-  		<!-- Modal -->
-		<div class="modal fade" id="infoUsuario" tabindex="-1"  data-bs-backdrop="static" aria-labelledby="exampleModalLabel" aria-hidden="true">
-		  <div class="modal-dialog">
-		    <div class="modal-content">
-		      <div class="modal-header">
-		        <h1 class="modal-title fs-5" id="exampleModalLabel">Informacoes do usuario</h1>
-		        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-		      </div>
-		      <div class="modal-body">
-		        <div>
-		        	<p class="m-1"><span class="">Nome completo</span><span name="nome"></span></p>
-		        	<p class="m-1"><span class="">Email</span><span name="email"></span></p>
-		        </div>
-		      </div>
-		      <div class="modal-footer">
-		        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-		        <button type="button" class="btn btn-primary">Save changes</button>
-		      </div>
-		    </div>
-		  </div>
-		</div>
+					<p class="col-md-12">
+						Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+						tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+						quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+						consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+						cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+						proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+					</p>
+				</div>
+				<div class="offcanvas-body row">
+					<div class="col-md-6 card p-2 m-1">
+						Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+						tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+						quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+						consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+						cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+						proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+					</div>
+					<div class="col-md-6 card p-2 m-1">
+						Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+						tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+						quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+						consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+						cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+						proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+					</div>
+					<div class="col-md-6 card p-2 m-1">
+						Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+						tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+						quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+						consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+						cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+						proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+					</div>
+					<div class="col-md-6 card p-2 m-1">
+						Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+						tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+						quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+						consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+						cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+						proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+					</div>
+					<div class="col-md-6 card p-2 m-1">
+						Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+						tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+						quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+						consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+						cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+						proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+					</div>
+					<div class="col-md-6 card p-2 m-1">
+						Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+						tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+						quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+						consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+						cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+						proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+					</div>
+					<div class="col-md-6 card p-2 m-1">
+						Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+						tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+						quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+						consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+						cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+						proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+					</div>
+					<div class="col-md-6 card p-2 m-1">
+						Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+						tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+						quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+						consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+						cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+						proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+					</div>
+					<div class="col-md-6 card p-2 m-1">
+						Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+						tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+						quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+						consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+						cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+						proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+					</div>
+					<div class="col-md-6 card p-2 m-1">
+						Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+						tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+						quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+						consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+						cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+						proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+					</div>
+				</div>
+			</div>
+  	</offcanvas>
+
+
+
+
+		<modal>
+
+	  		<!-- Modal -->
+			<div class="modal fade" id="infoUsuario" tabindex="-1"  data-bs-backdrop="static" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			  <div class="modal-dialog">
+			    <div class="modal-content">
+			      <div class="modal-header">
+			        <h1 class="modal-title fs-5 fw-bold" id="exampleModalLabel">Informacoes do usuario</h1>
+			        <button type="button" class="btn-close text-white text-white" data-bs-dismiss="modal" aria-label="Close">X</button>
+			      </div>
+			      <div class="modal-body">
+			        <div class="">
+			        	<div class="m-1 form-control"><p class="row "><span class="fw-bold col-4">Nome</span><span class="col-auto" name="nome"></span></p></div>
+			        	<div class="m-1 form-control"><p class="row"><span class="fw-bold col-4">Sexo</span><span class="col-auto" name="sexo"></span></p></div>
+			        	<div class="m-1 form-control"><p class="row"><span class="fw-bold col-4">Nascimento</span><span class="col-auto" name="data"></span></p></div>
+			        	<div class="m-1 form-control"><p class="row"><span class="fw-bold col-4">Telefone</span><span class="col-auto" name="telefone"></span></p></div>
+			        	<div class="m-1 form-control"><p class="row"><span class="fw-bold col-4">Morada</span><span class="col-auto" name="morada"></span></p></div>
+			        </div>
+			      </div>
+			      <div class="modal-footer">
+			      	<p class="">Os seus dados estao totalmente guardados do sigilo proficional da SYSTUINFO.</p>
+			      </div>
+			    </div>
+			  </div>
+			</div>
 
   	</modal>
 
 
-
-  	<offcanvas>
-		<div class="offcanvas offcanvas-end w-75" data-bs-scroll="false" tabindex="-1" id="canva_introdution" aria-labelledby="offcanvass">
-			<div class="offcanvas-header">
-				<h5 id="offcanvasRightLabel">Introdução</h5>
-				<button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-			</div>
-			<div class="offcanvas-body">
-				<p>
-					O curso de Tecnologias de Informação oferecido pelo ICT (Instituto de Ciência e Tecnologia) é um programa abrangente que visa capacitar os estudantes com habilidades essenciais para enfrentar os desafios e demandas do mundo digital em constante evolução. Sob a coordenação do experiente Muhamad, mestre em programação, o curso é ministrado por uma equipe de docentes altamente qualificados e especializados em diversas áreas-chave da tecnologia da informação.
-
-					Um dos docentes é Watson, um analista de rede de computadores corporativo com vasta experiência no setor. Sua expertise proporciona aos alunos uma compreensão profunda dos princípios de rede, segurança cibernética e infraestrutura de TI, essenciais para o funcionamento eficiente e seguro dos sistemas de informação nas organizações.
-
-					Outro membro do corpo docente é Vasco, um especialista em sistemas de base de dados. Com seu conhecimento aprofundado em gerenciamento de dados e sistemas de banco de dados, Vasco oferece insights valiosos sobre a modelagem, implementação e manutenção de sistemas de informações fundamentais para empresas de todos os setores.
-
-					O projeto desenvolvido por um grupo de estudantes dedicados em 2023 sob a orientação desses instrutores exemplifica o comprometimento e a determinação dos alunos em adquirir habilidades práticas e aplicáveis no campo da tecnologia da informação. Numa época em que os desafios eram significativos, esses alunos demonstraram resiliência e perseverança para superar obstáculos e alcançar o sucesso.
-
-					O curso de Tecnologias de Informação do ICT, com sua equipe docente capacitada e engajada, continua a oferecer uma educação de alta qualidade que prepara os alunos para se destacarem em um mercado de trabalho cada vez mais competitivo e dinâmico.
-				</p>
-			</div>
-		</div>
-
-
-		<div class="offcanvas offcanvas-end w-75" data-bs-scroll="false" tabindex="-1" id="canva_pa" aria-labelledby="offcanvass">
-			<div class="offcanvas-header d-grid sticky-top d-fixed-top">
-				<h5 id="offcanvasRightLabel " class="text-uppercase">Bem vindo ao primeiro semestre do primeiro ano</h5>
-				<hr>
-				<button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-
-				<p class="col-md-12">
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-					quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-					consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-					cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-					proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-				</p>
-			</div>
-			<div class="offcanvas-body row">
-				<div class="col-md-6 card p-2 m-1">
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-					quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-					consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-					cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-					proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-				</div>
-				<div class="col-md-6 card p-2 m-1">
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-					quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-					consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-					cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-					proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-				</div>
-				<div class="col-md-6 card p-2 m-1">
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-					quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-					consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-					cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-					proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-				</div>
-				<div class="col-md-6 card p-2 m-1">
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-					quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-					consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-					cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-					proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-				</div>
-				<div class="col-md-6 card p-2 m-1">
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-					quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-					consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-					cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-					proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-				</div>
-				<div class="col-md-6 card p-2 m-1">
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-					quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-					consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-					cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-					proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-				</div>
-				<div class="col-md-6 card p-2 m-1">
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-					quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-					consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-					cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-					proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-				</div>
-				<div class="col-md-6 card p-2 m-1">
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-					quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-					consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-					cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-					proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-				</div>
-				<div class="col-md-6 card p-2 m-1">
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-					quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-					consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-					cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-					proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-				</div>
-				<div class="col-md-6 card p-2 m-1">
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-					quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-					consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-					cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-					proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-				</div>
-			</div>
-		</div>
-  	</offcanvas>
-
-
 	<script type="module">
-				document.addEventListener('backbutton', function(event) {
-		  // Impede o comportamento padrão do botão "back"
-		  event.preventDefault();
-		  alert("Nao pode");
-		  
-		  // Aqui você pode adicionar qualquer ação adicional que deseja executar quando o botão "back" é pressionado
-		});
+		   history.pushState(null, null, window.location.href);
+				window.onpopstate = function() {
+				    history.pushState(null, null, window.location.href);
+				};
+
+document.addEventListener('deviceready', function() {
+    document.addEventListener('backbutton', function(event) {
+        // Impedir o comportamento padrão do botão "back"
+        event.preventDefault();
+
+        // Exibir mensagem de alerta
+        navigator.notification.alert(
+            'Botão "back" pressionado!',  // Mensagem do alerta
+            function() { },                // Função de callback (opcional)
+            'Aviso',                       // Título do alerta
+            'OK'                           // Texto do botão (opcional)
+        );
+    });
+});
+
 
 		//====================================
 		//INICIALIZANDO A CONEXAO COM FIREBASE
@@ -367,6 +432,7 @@
 		var auth = getAuth(app);
 
 
+
 		//==============================================================================
 		//REGENCIANDO A FIREBASE
 		//==============================================================================
@@ -386,7 +452,7 @@
 				  // Define o conteúdo interno (innerHTML) de cada elemento <span> como o valor do e-mail
 				  span.innerHTML = user.email;
 				});
-
+				buscarDadosUsuario(email);
 
 			} else {
 
@@ -398,8 +464,58 @@
 			window.location.href = 'index.html';
 		  }
 		});
-		
 
+		function buscarDadosUsuario(email){
+
+      var emailSemDominio = removerDepoisDoCaractere(email, "@", 1);
+			// Referência para o nó dos usuários
+			var usuariosRef = ref(db, 'systuinfo/usuario/'+emailSemDominio);
+
+			// Recuperar os dados
+			get(usuariosRef).then((snapshot) => {
+			if (snapshot.exists()) {
+			// Recuperar os dados do snapshot
+			var dadosUsuario = snapshot.val();
+			console.log("Dados do usuário:", dadosUsuario);
+
+
+			document.querySelectorAll('span[name="nome"]').forEach(span => {
+				  // Define o conteúdo interno (innerHTML) de cada elemento <span> como o valor do e-mail
+				  span.innerHTML = dadosUsuario.primeiro_nome +" "+dadosUsuario.nome_meio +" "+dadosUsuario.ultimo_nome;
+				});
+				document.querySelectorAll('span[name="sexo"]').forEach(span => {
+				  // Define o conteúdo interno (innerHTML) de cada elemento <span> como o valor do e-mail
+				  span.innerHTML =dadosUsuario.sexo;
+				});
+				document.querySelectorAll('span[name="data"]').forEach(span => {
+				  // Define o conteúdo interno (innerHTML) de cada elemento <span> como o valor do e-mail
+				  span.innerHTML =dadosUsuario.data_nascimento;
+
+				});
+				document.querySelectorAll('span[name="telefone"]').forEach(span => {
+				  // Define o conteúdo interno (innerHTML) de cada elemento <span> como o valor do e-mail
+				  span.innerHTML =dadosUsuario.telefone;
+				});
+				document.querySelectorAll('span[name="morada"]').forEach(span => {
+				  // Define o conteúdo interno (innerHTML) de cada elemento <span> como o valor do e-mail
+				  span.innerHTML =dadosUsuario.morada +" em "+dadosUsuario.distrito;
+				});
+				document.querySelectorAll('img[name="img-perfil"]').forEach(span => {
+				  // Define o conteúdo interno (innerHTML) de cada elemento <span> como o valor do e-mail
+				  span.setAttribute('src',dadosUsuario.source_img);
+				});
+
+			} else {
+			console.log("Nó não encontrado");
+			}
+			}).catch((error) => {
+			console.error("Erro ao recuperar os dados:", error);
+			});
+
+
+		}
+
+			
 
 
 
@@ -427,6 +543,14 @@
 		    })
 		})()
 
+
+      function removerDepoisDoCaractere(str, caractere, valor) {
+          var index = str.indexOf(caractere);
+          if (index !== -1) {
+              return str.substring(0, index + valor);
+          }
+          return str;
+      }
 		
 	</script>
 	<script type="text/javascript">
@@ -461,12 +585,15 @@
 		        var targetName = button.getAttribute('ficheiro');
 		        var nome_ficheiro_disposicao=targetName+".html";
 				if(targetName!=null){
-					document.querySelector('#iframe_disposicao_semestral').style.display = "block";
-					document.querySelector('#iframe_disposicao_semestral').setAttribute('src',"conteudo/it/"+nome_ficheiro_disposicao);
+					document.querySelector('#object_disposicao_semestral').style.display = "block";
+					document.querySelector('#object_disposicao_semestral').setAttribute('data',"conteudo/it/"+nome_ficheiro_disposicao);
 				}
 		    });
 		});
 
+		document.getElementById('btn-inicial').onclick=function(){
+			document.querySelector('#object_disposicao_semestral').style.display = "none";
+		}
 			
 	</script>
 
@@ -474,6 +601,7 @@
     <script src="js/bootstrap.bundle.min.js"></script>
 
     <script src="js/offcanvas.js"></script>
+		}
 
 </body>
 </html>
